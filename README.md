@@ -1,24 +1,24 @@
-# README
+# グリーンクッキング
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+料理レシピ投稿サイト
 
-Things you may want to cover:
+### サイトテーマ
+ベジタリアンや、女性向けの野菜中心の料理レシピ投稿サイト
 
-* Ruby version
+### テーマを選んだ理由
+今回の外出自粛の影響で自分も含め、家庭での料理に興味を持った方が多い為
+親戚のベジタリアンの方が、ベジタリアン向けの料理レシピサイトが欲しいと言っていたことを思い出し、他にも必要としている方が多くいると考えた為
+女性の方にも、役にたつと考えた為
 
-* System dependencies
+### ターゲットユーザ
+家で料理を作る一般ユーザ（主に女性、ベジタリアン）
 
-* Configuration
+### 主な利用シーン
+レシピを確認しながら料理を作れる
 
-* Database creation
+## 設計書
 
-* Database initialization
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1PygqQREAucpIMS8pSKD2tfV6GkdwPzG2doRLfmuzQ8U/edit?usp=sharing
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
