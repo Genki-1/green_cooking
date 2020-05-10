@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  get 'recipes/index'
+  get 'recipes/show'
+  get 'recipes/new'
+  get 'recipes/create'
+  get 'recipes/edit'
+  get 'recipes/update'
+  get 'recipes/destroy'
+
   get 'homes/index'
   get 'homes/about'
 
@@ -21,13 +29,6 @@ Rails.application.routes.draw do
   get 'likes/index'
   get 'likes/create'
   get 'likes/destroy'
-
-  get 'recipes/index'
-  get 'recipes/show'
-  get 'recipes/new'
-  get 'recipes/create'
-  get 'recipes/edit'
-  get 'recipes/update'
 
   get 'users/index'
   get 'users/show'

@@ -22,4 +22,10 @@ class UsersController < ApplicationController
 
   def followers
   end
+
+  private
+  def set_user
+    @user = User.find_by(public_uid: params[:id])
+  end
+
 end
