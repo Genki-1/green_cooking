@@ -2,42 +2,32 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  get 'recipes/index'
-  get 'recipes/show'
-  get 'recipes/new'
-  get 'recipes/create'
-  get 'recipes/edit'
-  get 'recipes/update'
-  get 'recipes/destroy'
+  root to: 'recipes#index'
 
-  get 'homes/index'
-  get 'homes/about'
+  resources :makes, only: [:create, :destroy]
 
-  get 'ralationships/create'
-  get 'ralationships/destroy'
+  resources :ingredients, only: [:create, :destroy]
 
-  get 'reports/index'
-  get 'reports/new'
-  get 'reports/create'
-  get 'reports/destroy'
-  get 'reports/edit'
-  get 'reports/update'
+  resources :recipes, only: [:create, :index, :destroy, :new, :show, :edit, :update]
 
-  get 'comments/create'
-  get 'comments/destroy'
+  resources :homes, only: [:index]
 
-  get 'likes/index'
-  get 'likes/create'
-  get 'likes/destroy'
+  resources :ralationships, only: [:create, :destroy]
 
-  get 'users/index'
-  get 'users/show'
-  get 'users/edit'
-  get 'users/update'
+  resources :reports, only: [:create, :index, :destroy, :new, :edit, :update]
+
+  resources :comments, only: [:create, :destroy]
+
+  resources :likes, only: [:create, :index, :destroy]
+
+  resources :users, only: [:index, :show, :edit, :update]
+
   get 'users/confirm'
   get 'users/hide'
   get 'users/following'
   get 'users/followers'
+
+  get 'homes/about'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

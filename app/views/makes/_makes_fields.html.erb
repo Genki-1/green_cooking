@@ -1,0 +1,8 @@
+<div class="nested-fields">
+    <%= f.label "image" %>
+    <%= f.attachment_field :image %>
+
+    <%= f.label "process" %>
+    <%= f.text_field :process %>
+    <%= link_to_remove_association "remove make", f %>
+</div>
