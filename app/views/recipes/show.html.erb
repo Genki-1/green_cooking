@@ -1,2 +1,42 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<h2>商品 詳細画面</h2>
+<div class="row">
+  <div class="col-xs-5">
+    <%= attachment_image_tag @recipe, :main_image, size: '300x200',format: "jpeg" %>
+
+    <tr>
+      <th>肉</th><td><%= @recipe.is_meat_status %></td>
+    </tr>
+    <tr>
+      <th>魚</th><td><%= @recipe.is_fish_status %></td>
+    </tr>
+    <tr>
+      <th>卵</th><td><%= @recipe.is_egg_status %></td>
+    </tr>
+    <tr>
+      <th>乳製品</th><td><%= @recipe.is_dairy_products_status %></td>
+    </tr>
+  </div>
+  <div class="col-xs-7">
+    <table class="table table-borderless">
+      <tr>
+        <th>レシピ名</th><td><%= @recipe.name %></td>
+      </tr>
+      <tr>
+        <th>レシピの説明文</th><td><%= @recipe.description %></td>
+      </tr>
+      <tr>
+        <th>ポイント</th><td><%= @recipe.point %></td>
+      </tr>
+      <tr>
+        <th>税抜き価格</th><td><%= @item.price %>(<%= @tax.floor %>)円</td>
+      </tr>
+      <tr>
+        <th>販売ステータス</th>
+        <td><%= @item.is_sale_status  == false ? "販売停止中" : "販売中"%></td>
+      </tr>
+    </table>
+  </div>
+  <div class="row">
+    <%= link_to '編集する',edit_admins_item_path(@item), class: " btn btn-primary pull-right" %>
+  </div>
+</div>
