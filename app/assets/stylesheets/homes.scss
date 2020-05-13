@@ -1,3 +1,46 @@
 // Place all the styles related to the Homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.about_contents {
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    border: 0.5px solid #747474;
+    border-radius: 5px;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 2px 2px 3px #aaaaaa;
+}
+
+.about h2 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #04949c;
+    text-shadow: 2px 1px 2px #aaaaaa;
+}
+
+.about p {
+    text-align: center;
+    color: #747474;
+    font-size: 1.4em;
+}
+
+.can_about {
+    background-color: #fafae1;
+    padding: 20px 20px 20px 20px;
+    margin: 20px auto;
+    width: 70%;
+    text-align: left;
+    color: #747474;
+    font-size: 1.2em;
+}
+
+.can_about ul {
+    margin: 5px;
+    padding: 5px;
+}
+
+.can_about li {
+    padding: 5px;
+}

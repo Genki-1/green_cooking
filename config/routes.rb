@@ -12,15 +12,18 @@ Rails.application.routes.draw do
 
   resources :homes, only: [:index]
 
-  resources :ralationships, only: [:create, :destroy]
-
   resources :reports, only: [:create, :index, :destroy, :new, :edit, :update]
 
   resources :comments, only: [:create, :destroy]
 
   resources :likes, only: [:create, :index, :destroy]
 
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update] do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :ralationships, only: [:create, :destroy]
 
   get 'users/confirm'
   get 'users/hide'

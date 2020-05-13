@@ -9,8 +9,8 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @ingredients = @parent.ingredients.build
-    @makes = @parent.makes.build
+    @ingredients = @recipe.ingredients.build
+    @makes = @recipe.makes.build
   end
 
   def create
@@ -37,3 +37,4 @@ class RecipesController < ApplicationController
   end
 
 end
+

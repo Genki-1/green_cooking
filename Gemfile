@@ -80,3 +80,4 @@ gem 'kaminari'
 gem 'rspec-rails'
 gem 'ransack'
 gem 'public_uid'
+gem "cocoon"
