@@ -81,3 +81,8 @@ gem 'rspec-rails'
 gem 'ransack'
 gem 'public_uid'
 gem "cocoon"
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
