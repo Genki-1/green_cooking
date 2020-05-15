@@ -12,3 +12,45 @@
   border-spacing: 0;
   box-shadow: 2px 2px 3px #aaaaaa;
 }
+
+
+.recipe_show{
+  margin-top: 20px;
+  width: 100%;
+  border:0.5px solid #747474;
+  border-radius: 5px;
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: 2px 2px 3px #aaaaaa;
+  .recipe_show_margin{
+    margin: 0 20px;
+    h2{
+        color: #747474;
+        border-bottom: solid 3px #04949c;
+        p{
+          font-size:0.5em;
+        }
+        }
+    h3{
+        color: #000000;
+        padding-top: 5px;
+        border-top: solid 1px #04949c;
+        border-bottom: solid 1px #04949c;
+        }
+      .outline{
+        margin-top: 30px;
+        font-size: 1.6em;
+      }
+      .post_user{
+        float: right;
+      }
+      .current_user_btn{
+        float: right;
+      }
+
+  }
+  .recipe_show_image{
+    text-align: center;
+    margin: 30px 0;
+  }
+}
