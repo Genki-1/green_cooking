@@ -1,25 +1,17 @@
 <h2>商品 詳細画面</h2>
 <div class="row">
   <div class="col-xs-12">
-    <%= render 'category', categories: @category_list %>
-    <div class="col-xs-9">
-      <div class="row">
-        カテゴリー：<%= link_to @parent_category.name, category_all_index_recipe_path(@parent_category) %>
-        ＞ <%= link_to @category.name, category_index_recipe_path(@category) %>
-        <div id="favorite_buttons_<%= @recipe.id %>" align="right">
-          <%= render partial: 'favorites/favorite_btn', locals: { recipe: @recipe} %>
-        </div>
-      </div>
+    <div class="col-xs-12">
+
       <div class="recipe_show">
         <div class="recipe_show_margin">
           <h2>
             <%= @recipe.title %>
             <span class="post_user">
               <p>
-                投稿者：<%= link_to @recipe.user.name, user_path(@recipe.user.id)%>
+                投稿者：<%= link_to @recipe.user.nickname, user_path(@recipe.user.id)%>
                 <% if @recipe.user == current_user %>
                 <%= link_to "編集する", edit_recipe_path(@recipe),class: "btn btn-red btn-sm" %>
-                <%= @recipe.if_is_closed %>
                 <% end %></p>
               </span>
             </h2>
@@ -29,25 +21,17 @@
               投稿時間：<%= @recipe.created_at.to_s(:datetime_jp) %>
             </p>
             <div class="col-xs-5 recipe_show_image">
-              <%= attachment_image_tag @recipe, :image, :fill, 300,200,format: "jpeg" , fallback: "no_image.jpg", size:'300x200' %>
+              <%= attachment_image_tag @recipe, :main_image, :fill, 300,200,format: "jpeg" , fallback: "no_image.jpg", size:'300x200' %>
             </div>
             <div class="col-xs-7">
-              <div class="outline"><%= @recipe.outline %></div>
-              <div>
-                <% @recipe.tags.each do |tag| %>
-                <span class="label label-primary"><%= tag.name %></span>
-                <% end %>
-              </div>
 
               <h3>レシピ材料</h3>
-              <table class="table material_table">
-                <% @materials.each do |material| %>
+              <table class="table ingredient_table">
+                <% @ingredients.each do |ingredient| %>
                 <tbody>
                   <tr>
-                    <td><%= attachment_image_tag material, :image, format: "jpeg" , fallback: "no_image.jpg", id: "material-image"  %></td>
-                    <td><%= material.name %></td>
-                    <td><%= material.quantity %></td>
-                    <td><%= material.maker %></td>
+                    <td><%= ingredient.name %></td>
+                    <td><%= ingredient.quantity %></td>
                   </tr>
                 </tbody>
                 <% end %>
@@ -56,35 +40,35 @@
           </div>
           <div class="row recipe_show_margin">
             <h3>レシピ手順</h3>
-            <table class="table procedure_table">
-              <% @procedures.each.with_index(1) do |procedure, idx| %>
+            <table class="table make_table">
+              <% @makes.each.with_index(1) do |make, idx| %>
               <tbody>
                 <tr>
                   <td><%= idx %></td>
-                  <td class="col-xs-2" align="center"><%= attachment_image_tag procedure, :image, format: "jpeg" , fallback: "no_image.jpg", id: "procedure-image" %></td>
-                  <td class="col-xs-10"><%= procedure.explanation %></td>
+                  <td class="col-xs-2" align="center"><%= attachment_image_tag make, :image, format: "jpeg" , fallback: "no_image.jpg", id: "image", size:'100x100' %></td>
+                  <td class="col-xs-10"><%= make.process %></td>
                 </tr>
               </tbody>
               <% end %>
             </table>
           </div>
         </div>
-        <div class="conteiner comment_show">
-          <div class="row recipe_comment_margin">
-            <div class="comment">
-              <h3>コメント</h3>
-              <div id="comments_area">
-                <%= render partial:'comments/comment_index',locals: { comments: @comments, recipe: @recipe} %>
-                <% if user_signed_in? %>
-                <%= render partial: 'comments/form', locals: { comment: @comment, recipe: @recipe } %>
-                <% else %>
-                <div class="not_login" align="center">
-                  <%= link_to '会員ログイン', new_user_session_path %>　をするとコメントができるようになります。
-                </div>
-                <% end %>
-              </div>
-            </div>
+        <div class="row">
+          <ul>
+            <li class="comment-create">
+              <h3 class="text-left title">レビュー</h3>
+            </li>
+            <li id="comments_area">
+              <%= render partial: 'comments/index', locals: { comments: @comments } %>
+            </li>
+          </ul>
+          <hr>
+          <% if user_signed_in? %>
+          <div class="comment-create">
+            <h3 class="text-left">レビューを投稿する</h3>
+            <%= render partial: 'comments/form', locals: { comment: @comment, recipe: @recipe } %>
           </div>
+          <% end %>
         </div>
       </div>
     </div>

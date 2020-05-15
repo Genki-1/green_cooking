@@ -5,6 +5,10 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.ingredients
+    @makes = @recipe.makes
+    @comments = @recipe.comments.order(created_at: :desc)
+    @comment = Comment.new
   end
 
   def new
