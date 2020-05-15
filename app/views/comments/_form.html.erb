@@ -1,5 +1,5 @@
 <!-- コメント入力フォーム ------------------------------------------------------------>
 <%= form_with(model: [recipe, comment], url: recipe_comments_path(@recipe) ) do |f| %>
-    <%= f.text_area :content, class: "input-mysize" %>
+    <%= f.text_area :content, class: "input-mysize", :size=>"140x2" %>
     <%= f.submit "送信", class: "btn btn-outline-dark comment-submit float-right" %>
 <% end %>
