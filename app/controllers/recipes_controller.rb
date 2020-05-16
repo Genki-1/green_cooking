@@ -21,7 +21,7 @@ class RecipesController < ApplicationController
     recipe = Recipe.new(recipe_params)
     recipe.user_id=current_user.id
     if recipe.save
-      redirect_to root_path
+      redirect_to recipes_path
     else
       @recipe = recipe
       render :new
@@ -46,6 +46,9 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    recipe = Recipe.find(params[:id])
+    recipe.destroy
+    redirect_to recipes_path
   end
 
   private

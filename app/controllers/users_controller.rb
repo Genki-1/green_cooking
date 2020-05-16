@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user  = User.find(params[:id])
+    @recipes = Recipe.where(user_id: @user.id)
   end
 
   def edit
@@ -33,7 +35,7 @@ class UsersController < ApplicationController
 
   private
   def set_user
-    @user = User.find_by(public_uid: params[:id])
+    @user = User.find(params[:id])
   end
 
 end

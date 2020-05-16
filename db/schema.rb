@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 2020_05_12_124813) do
     t.boolean "is_fish_status", default: false, null: false
     t.boolean "is_egg_status", default: false, null: false
     t.boolean "is_dairy_products_status", default: false, null: false
-    t.string "public_uid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

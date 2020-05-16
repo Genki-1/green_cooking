@@ -79,7 +79,6 @@ gem 'hirb-unicode'
 gem 'kaminari'
 gem 'rspec-rails'
 gem 'ransack'
-gem 'public_uid'
 gem "cocoon"
 
 gem 'dotenv-rails'

@@ -40,7 +40,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.boolean :is_fish_status, default: false, null: false
       t.boolean :is_egg_status, default: false, null: false
       t.boolean :is_dairy_products_status, default: false, null: false
-      t.string :public_uid, null: false
 
       t.timestamps null: false
     end
