@@ -9,8 +9,8 @@
         <div class="col-xs-5">
           <h3>プロフィール画像</h3>
           <div align="center">
-            <%= attachment_image_tag @recipe, :profile_image, fallback: "no_image.jpg", size:'200x200', id: "file-preview" %>
-            <%= f.attachment_field :profile_image, class: "btn btn-blue item_attachment_field", id: "image_select"%>
+            <%= attachment_image_tag @recipe, :profile_image, fallback: "no_image.jpg", size:'200x200', id: "profile_file-preview" %>
+            <%= f.attachment_field :profile_image, class: "btn btn-blue item_attachment_field", id: "profile_image_select"%>
             <label for="image_select" class="btn btn-blue item_attachment_field" style="display: block;">画像選択</label>
           </div>
         </div>
@@ -34,7 +34,7 @@
 
 <!-- 画像選択した際に、選択した画像を表示させるjavascript -->
 <script>
-  document.getElementById('image_select').addEventListener('change', function (e) {
+  document.getElementById('profile_image_select').addEventListener('change', function (e) {
     // 1枚だけ表示する
     var file = e.target.files[0];
 
@@ -42,7 +42,7 @@
     var blobUrl = window.URL.createObjectURL(file);
 
     // img要素に表示
-    var img = document.getElementById('file-preview');
+    var img = document.getElementById('profile_file-preview');
     img.src = blobUrl;
 });
 </script>
