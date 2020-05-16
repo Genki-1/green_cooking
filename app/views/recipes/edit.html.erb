@@ -1,2 +1,110 @@
-<h1>Recipes#edit</h1>
-<p>Find me in app/views/recipes/edit.html.erb</p>
+<h1>レシピ新規登録画面</h1>
+<div class="row recipe_new">
+  <%= form_for(@recipe, url:recipe_path) do |f| %>
+  
+  <% if @recipe.errors.any? %>
+  <h3><%= @recipe.errors.count %>つ空白があります</h3><!--エラーメッセージ-->
+  <ul>
+    <% @recipe.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <div class="field">
+        <h3>完成画像</h3>
+        <%= attachment_image_tag @recipe, :main_image,:fill, 300,200,fallback: "no_image.jpg", size:'300x200', id: "file-preview" %>
+        <%= f.attachment_field :main_image, class: "image_form" %>
+        <%= f.label :main_image, "画像選択", class: "image_input_btn btn-primary" %>
+      </div>
+    </div>
+
+    <div class="col-xs-7">
+      <table class="table table-borderless">
+        <div class="title">
+          <tr>
+            <th>レシピ名</th><td><%= f.text_field :title %></td>
+          </tr>
+        </div>
+        <div class="description">
+          <tr>
+            <th>説明文</th><td><%= f.text_area :description %></td>
+          </tr>
+        </div>
+        <div class="point">
+          <tr>
+            <th>ポイント</th><td><%= f.text_area :point %></td>
+          </tr>
+        </div>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <table class="table table-borderless">
+
+        <div class="field">
+          <div class="recipe_status">
+            <tr>
+              <th>肉</th>
+              <td><%= f.radio_button :is_meat_status, "false" %>未使用<%= f.radio_button :is_meat_status, "ture" %>使用</td>
+            </tr>
+          </div>
+          <div class="recipe_status">
+            <tr>
+              <th>魚</th>
+              <td><%= f.radio_button :is_fish_status, "false" %>未使用<%= f.radio_button :is_fish_status, "ture" %>使用</td>
+            </tr>
+          </div>
+          <div class="recipe_status">
+            <tr>
+              <th>卵</th>
+              <td><%= f.radio_button :is_egg_status, "false" %>未使用<%= f.radio_button :is_egg_status, "ture" %>使用</td>
+            </tr>
+          </div>
+          <div class="recipe_status">
+            <tr>
+              <th>乳製品</th>
+              <td><%= f.radio_button :is_dairy_products_status, "false" %>未使用<%= f.radio_button :is_dairy_products_status, "ture" %>使用</td>
+            </tr>
+          </div>
+        </div>
+      </table>
+    </div>
+
+    <div class="col-xs-7">
+      <div class="recipes">
+        <%= f.fields_for :ingredients do |t| %>
+        <%= render "ingredient_fields", f: t %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association "追加", f, :ingredients %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 flex">
+
+
+      <div class="recipes">
+        <%= f.fields_for :makes do |t| %>
+        <%= render "make_fields", f: t %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association "追加", f, :makes %>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="row">
+    <button type="submit" class="btn btn-primary btn-lg pull-right">変更する</button>
+  </div>
+  <% end %>
+</div>
