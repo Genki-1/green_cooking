@@ -1,1 +1,5 @@
 $("#follow_form").html("<%= j(render("users/follow")) %>");
+
+$("#following_count").text("<%= @user.following.count %>")
+
+$("#followers_count").text("<%= @user.followers.count %>")
