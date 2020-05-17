@@ -43,13 +43,13 @@
               <tr>
                 <th class="col-xs-5">投稿したレシピ数</th>
                 <td class="col-xs-2" align="center"><%= @recipes.count %></td>
-                
+                <td class="col-xs-5"><%= link_to "投稿レシピ一覧へ", recipes_user_path(@user),class: "btn btn-blue" %></td>
               </tr>
               <tr>
                 <th class="col-xs-5">いいねしたレシピ数</th>
- 
+                <td class="col-xs-2" align="center"><%= @user.likes.count %></td>
                 <td>
-                  <%= link_to "いいねしたレシピ一覧へ", users_likes_path(@user),class: "btn btn-blue" %></td>
+                  <%= link_to "いいねしたレシピ一覧へ", likes_user_path(@user),class: "btn btn-blue" %></td>
                 </tr>
               </tbody>
             </table>
@@ -89,7 +89,7 @@
           <% end %>
         </table>
         <% if @recipes.present? %>
-            <p align="right"><%= link_to ">>ユーザのレシピをもっと見る", users_recipes_path(@user) %></p>
+            <p align="right"><%= link_to ">>ユーザのレシピをもっと見る", recipes_user_path(@user) %></p>
           <% else %>
             <p align="right">ユーザーの投稿レシピはありません</p>
           <% end %>

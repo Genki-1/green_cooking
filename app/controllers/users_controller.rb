@@ -38,6 +38,8 @@ class UsersController < ApplicationController
   end
 
   def likes
+    @user = User.find(params[:id])
+    @recipes = Recipe.where(user_id: @user.id)
   end
 
   private
