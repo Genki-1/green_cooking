@@ -32,12 +32,12 @@
               <tr>
                 <th class="col-xs-5">フォロー</th>
                 <td class="col-xs-2" align="center"><%= @user.following.count%></td>
-                <td class="col-xs-5"><%= link_to "フォローの一覧",  users_following_path(@user),class: "btn btn-blue" %></td>
+                <td class="col-xs-5"><%= link_to "フォローの一覧",  following_user_path(@user),class: "btn btn-blue" %></td>
               </tr>
               <tr>
                 <th class="col-xs-5">フォロワー</th>
                 <td class="col-xs-2" align="center"><%= @user.followers.count %></td>
-                <td class="col-xs-5"><%= link_to "フォロワーの一覧",  users_followers_path(@user),class: "btn btn-blue" %></td>
+                <td class="col-xs-5"><%= link_to "フォロワーの一覧",  followers_user_path(@user),class: "btn btn-blue" %></td>
               </tr>
               <tr>
                 <th class="col-xs-5">投稿したレシピ数</th>
