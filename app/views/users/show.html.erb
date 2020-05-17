@@ -47,9 +47,9 @@
               </tr>
               <tr>
                 <th class="col-xs-5">いいねしたレシピ数</th>
-      
+ 
                 <td>
-                  <%= link_to "いいねしたレシピ一覧へ", likes_path(@user),class: "btn btn-blue" %></td>
+                  <%= link_to "いいねしたレシピ一覧へ", users_likes_path(@user),class: "btn btn-blue" %></td>
                 </tr>
               </tbody>
             </table>
@@ -89,10 +89,10 @@
           <% end %>
         </table>
         <% if @recipes.present? %>
-        
-        <% else %>
-        <p align="right">ユーザーの投稿レシピはありません</p>
-        <% end %>
+            <p align="right"><%= link_to ">>ユーザのレシピをもっと見る", users_recipes_path(@user) %></p>
+          <% else %>
+            <p align="right">ユーザーの投稿レシピはありません</p>
+          <% end %>
       </div>
     </div>
   </div>

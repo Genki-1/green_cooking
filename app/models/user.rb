@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
+  has_many :likes, dependent: :destroy
+  has_many :like_recipes, through: :likes, source: :recipe
+
   has_many :recipes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
@@ -28,5 +31,9 @@ class User < ApplicationRecord
   def unfollow(user)
     following_relationships.find_by(following_id: user.id).destroy
   end
+
+  def already_liked?(recipe)
+   self.likes.exists?(recipe_id: recipe.id)
+ end
 
 end

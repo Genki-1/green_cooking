@@ -1,5 +1,15 @@
-<h2>商品 詳細画面</h2>
 <div class="row">
+  <div class="col-xs-10">
+  <h2>商品 詳細画面</h2>
+</div>
+
+  <div class="col-xs-2 like_btn" id="show_like_<%= @recipe.id %>">
+    <%= render 'likes/like', recipe: @recipe %>
+  </div>
+</div>
+
+<div class="row">
+
   <div class="col-xs-12">
 
     <div class="recipe_show">
@@ -9,6 +19,8 @@
           <span class="post_user">
             <p>
               投稿者：<%= link_to @recipe.user.nickname, user_path(@recipe.user.id)%>
+
+
               <% if @recipe.user == current_user %>
               <%= link_to "編集", edit_recipe_path(@recipe),class: "btn btn-sm" %>
               <%= link_to "消去", recipe_path(@recipe), method: :delete, data: {confirm: "本当に消しますか?"}, class: "btn btn-sm" %>

@@ -32,6 +32,14 @@ class UsersController < ApplicationController
     @users = @user.followers
   end
 
+  def recipes
+    @user = User.find(params[:id])
+    @recipes = Recipe.where(user_id: @user.id)
+  end
+
+  def likes
+  end
+
   private
   def set_user
     @user = User.find(params[:id])

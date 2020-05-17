@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :recipes, only: [:create, :index, :destroy, :new, :show, :edit, :update] do
     resources :comments, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy, :index]
   end
 
   resources :homes, only: [:index]
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :edit, :update] do
     member do
-      get :following, :followers
+      get :following, :followers, :recipes, :likes
     end
   end
   resources :ralationships, only: [:create, :destroy]
@@ -29,6 +30,9 @@ Rails.application.routes.draw do
   get 'users/hide'
   get 'users/following'
   get 'users/followers'
+  get 'users/recipes'
+  get 'users/likes'
+
 
   get 'homes/about'
 
