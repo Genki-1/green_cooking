@@ -1,0 +1,37 @@
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr><th>ユーザー情報</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="2" align="center"><%= attachment_image_tag user, :profile_image, :fill,200,200, format: 'jpeg', class: "profile-thumb", fallback: "no_image.jpg", size:'200x200' %>
+          <%= render "follow_form" %>
+        </td>
+      </tr>
+      <tr>
+        <th>ニックネーム</th>
+      </tr>
+      <tr>
+        <td class="name" align="center"><%= link_to user_path(user) do %><strong>
+          <%= user.nickname %></strong><% end %></td>
+      </tr>
+      <tr>
+        <th>自己紹介</th>
+      </tr>
+      <tr>
+        <td colspan="2"><%= user.profile_text %></td>
+      </tr>
+      <tr>
+    <% if current_page?(root_path) %>
+      <td class="home_btn"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn-block" %></td>
+      <td class="home_btn"><%= link_to "ユーザのレシピ一覧", recipes_user_path(user),class: "btn-block" %></td>
+    <% elsif current_page?(controller: 'users', action: 'recipes') %>
+      <td class="home_btn"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn-block" %></td>
+    <% elsif current_page?(controller: 'users', action: 'likes') %>
+      <td class="home_btn"><%= link_to "ユーザのレシピ一覧", recipes_user_path(user),class: "btn-block" %></td>
+    <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>

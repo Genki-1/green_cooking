@@ -1,5 +1,10 @@
 <div class="row">
-  <div class="col-xs-12 recipes_index">
+
+  <div class="col-xs-3 user_profile">
+      <%= render 'user_profile', user: @user %>
+    </div>
+
+  <div class="col-xs-8 recipes_index">
     <table class="table">
       <h2><%= @user.nickname %>の投稿レシピ</h2>
       <p>全<strong><%= @recipes.count %></strong>件</p>

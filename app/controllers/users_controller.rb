@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
   def likes
     @user = User.find(params[:id])
-    @recipes = Recipe.where(user_id: @user.id)
+    @recipes = @user.like_recipes.includes(:user)
   end
 
   private
