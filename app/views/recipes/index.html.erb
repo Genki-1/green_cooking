@@ -1,19 +1,29 @@
 <div class="row">
-<table class="table">
-<h1>レシピ一覧</h1>
-  <tbody>
-    <% @recipes.each do |recipe| %>
-    <tr>
-      <td class="col-xs-2">
-        <%= link_to user_path(recipe.user) do %>
-        <%= attachment_image_tag recipe, :main_image, :fill, 100, 100, format: 'jpg', fallback: "no_image.jpg", size:'120x120' %>
-        <% end %>
-      </td>
-      <td class="col-xs-4"><%= link_to recipe.title, recipe_path(recipe) %></td>
-      <td class="col-xs-4"><%= recipe.description %></td>
-      <td class="col-xs-2"><%= link_to recipe.user.nickname, user_path(recipe.user) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <table class="table">
+    <h1>レシピ一覧</h1>
+    <tbody>
+      <% @recipes.each do |recipe| %>
+      <tr>
+        <td class="col-xs-2">
+          <%= link_to user_path(recipe.user) do %>
+          <%= attachment_image_tag recipe, :main_image, :fill, 100, 100, format: 'jpg', fallback: "no_image.jpg", size:'120x120' %>
+          <% end %>
+          
+        </td>
+        <td class="col-xs-7">
+          <div class="recipe_title"><%= link_to recipe.title, recipe_path(recipe) %></div>
+          <%= recipe.description %>
+        </td>
+        <td class="col-xs-2">
+          <%= link_to recipe.user.nickname, user_path(recipe.user) %>
+          </td>
+          <td class="col-xs-1">
+            <div class="like_btn" id="show_like_<%= recipe.id %>">
+              <%= render 'likes/like', recipe: recipe %>
+            </div>
+          </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

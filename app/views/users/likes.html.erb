@@ -1,8 +1,8 @@
 <div class="row">
 
   <div class="col-xs-3 user_profile">
-      <%= render 'user_profile', user: @user %>
-    </div>
+    <%= render 'user_profile', user: @user %>
+  </div>
 
   <div class="col-xs-8 recipes_index">
     <table class="table">
@@ -17,13 +17,22 @@
               <%= link_to user_path(recipe.user) do %>
               <%= attachment_image_tag recipe, :main_image, :fill, 100, 100, format: 'jpg', fallback: "no_image.jpg", size:'120x120' %>
               <% end %>
+              
+            </td>
+            <td class="col-xs-7">
+              <div class="recipe_title"><%= link_to recipe.title, recipe_path(recipe) %></div>
+              <%= recipe.description %>
+            </td>
+
+            <td class="col-xs-2">
+              <%= link_to recipe.user.nickname, user_path(recipe.user) %>
+            </td>
+            <td class="col-xs-1">
               <div class="like_btn" id="show_like_<%= recipe.id %>">
                 <%= render 'likes/like', recipe: recipe %>
               </div>
             </td>
-            <td class="col-xs-3"><%= link_to recipe.title, recipe_path(recipe) %></td>
-            <td class="col-xs-5"><%= recipe.description %></td>
-            <td class="col-xs-2"><%= link_to recipe.user.nickname, user_path(recipe.user) %></td>
+            
           </tr>
         </div>
         <% end %>
