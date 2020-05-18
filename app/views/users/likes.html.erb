@@ -1,0 +1,7 @@
+<div class="row">
+  <div class="col-xs-8 recipes_index">
+    <h2><%= @user.nickname %>のいいねしたレシピ</h2>
+    <p>全<strong><%= @recipes.count %></strong>件</p>
+    <%= render 'recipes/recipes_index', recipes: @recipes %>
+  </div>
+</div>

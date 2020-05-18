@@ -1,21 +1,30 @@
 <div class="row">
   <div class="col-xs-12 recipes_index">
-    <h2><%= @user.nickname %>の投稿レシピ</h2>
-    <p>全<strong><%= @recipes.count %></strong>件</p>
-    <div class="recipe_index">
-  <% if recipes.present? %>
-    <% recipes.each do |recipe| %>
+    <table class="table">
+      <h2><%= @user.nickname %>の投稿レシピ</h2>
+      <p>全<strong><%= @recipes.count %></strong>件</p>
+
+      <% if @recipes.present? %>
+      <% @recipes.each do |recipe| %>
       <div class="recipe_div">
-        <%= link_to recipe_path(recipe) do %>
-          <%= attachment_image_tag recipe, :main_image, :fill, 180, 120,format: "jpeg" , fallback: "no_image.jpg", size: "180x120" %><br>
-          <%= recipe.title %>     <% end %>
-        
+        <tr>
+          <td class="col-xs-2">
+            <%= link_to user_path(recipe.user) do %>
+            <%= attachment_image_tag recipe, :main_image, :fill, 100, 100, format: 'jpg', fallback: "no_image.jpg", size:'120x120' %>
+            <% end %>
+            <div class="like_btn" id="show_like_<%= recipe.id %>">
+              <%= render 'likes/like', recipe: recipe %>
+            </div>
+          </td>
+          <td class="col-xs-3"><%= link_to recipe.title, recipe_path(recipe) %></td>
+          <td class="col-xs-5"><%= recipe.description %></td>
+          <td class="col-xs-2"><%= link_to recipe.user.nickname, user_path(recipe.user) %></td>
+        </tr>
       </div>
-    <% end %>
-    <%= paginate recipes, class: "paginate" %>
-  <% else %>
-    <div class="recipe_no_message" align="center">投稿レシピはありません</div>
-  <% end %>
-</div>
+      <% end %>
+      <% else %>
+      <div class="recipe_no_message" align="center">投稿レシピはありません</div>
+      <% end %>
+    </table>
   </div>
 </div>
