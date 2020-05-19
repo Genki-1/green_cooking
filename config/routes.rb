@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :recipes, only: [:create, :index, :destroy, :new, :show, :edit, :update] do
     resources :comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy, :index]
-    resources :reports, only: [:create, :index, :destroy, :new, :edit, :update]
+    resources :reports, only: [:create, :destroy, :new, :edit, :update]
   end
 
   resources :homes, only: [:index]
@@ -31,10 +31,10 @@ Rails.application.routes.draw do
   get 'users/followers'
   get 'users/recipes'
   get 'users/likes'
+  get 'users/reports'
 
 
   get 'homes/about'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
-

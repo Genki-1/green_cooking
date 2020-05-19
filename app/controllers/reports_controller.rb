@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
-  def index
-  end
+
+  before_action :report_params
 
   def new
   end

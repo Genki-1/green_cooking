@@ -23,7 +23,7 @@
         <td colspan="2"><%= user.profile_text %></td>
       </tr>
       <tr>
-    <% if current_page?(root_path) %>
+    <% if current_page?(controller: 'users', action: 'reports') %>
       <td class="home_btn"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn-block" %></td>
       <td class="home_btn"><%= link_to "ユーザのレシピ一覧", recipes_user_path(user),class: "btn-block" %></td>
     <% elsif current_page?(controller: 'users', action: 'recipes') %>

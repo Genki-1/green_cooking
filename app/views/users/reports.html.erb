@@ -1,0 +1,37 @@
+<div class="row">
+
+  <div class="col-xs-3 user_profile">
+    <%= render 'user_profile', user: @user %>
+  </div>
+
+  <div class="col-xs-8 reports_index">
+    <table class="table">
+      <h2><%= @user.nickname %>の投稿レシピ</h2>
+      <p>全<strong><%= @reports.count %></strong>件</p>
+
+      <% if @reports.present? %>
+      <% @reports.each do |report| %>
+      <div class="report_div">
+        <tr>
+          <td class="col-xs-2">
+            <%= link_to recipe_path(@recipe) do %>
+            <%= attachment_image_tag report, :image, :fill, 100, 100, format: 'jpg', fallback: "no_image.jpg", size:'120x120' %>
+            <% end %>
+            
+          </td>
+          <td class="col-xs-7">
+            <div class="report_title"><%= link_to @recipe.title, recipe_path(@recipe) %></div>
+            <%= report.content %>
+          </td>
+          <td class="col-xs-2">
+            <%= link_to report.user.nickname, user_path(report.user) %>
+          </td>
+        </tr>
+      </div>
+      <% end %>
+      <% else %>
+      <div class="report_no_message" align="center">投稿レシピはありません</div>
+      <% end %>
+    </table>
+  </div>
+</div>

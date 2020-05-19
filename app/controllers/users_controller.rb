@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show
     @user  = User.find(params[:id])
     @recipes = Recipe.where(user_id: @user.id)
+    @reports = Report.where(user_id: @user.id)
   end
 
   def edit
@@ -48,6 +49,11 @@ class UsersController < ApplicationController
     @recipes = @user.like_recipes.includes(:user)
   end
 
+  def reports
+    @user = User.find(params[:id])
+    @reports = Report.where(user_id: @user.id)
+  end
+
   private
   def set_user
     @user = User.find(params[:id])
@@ -58,3 +64,4 @@ class UsersController < ApplicationController
   end
 
 end
+

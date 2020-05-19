@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
     @ingredients = @recipe.ingredients
     @makes = @recipe.makes
     @comments = @recipe.comments.order(created_at: :desc)
-    @comment = Report.new
+    @comment = Comment.new
     @reports = @recipe.reports.order(created_at: :desc)
     @report = Report.new
   end
@@ -59,4 +59,3 @@ class RecipesController < ApplicationController
   end
 
 end
-
