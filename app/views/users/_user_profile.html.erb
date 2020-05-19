@@ -20,29 +20,29 @@
           <th>自己紹介</th>
         </tr>
         <tr>
-          <td colspan="2"><%= user.profile_text %></td>
+          <td colspan="2" align="center"><%= user.profile_text %></td>
         </tr>
         <tr>
           <% if current_page?(controller: 'users', action: 'reports') %>
           <tr>
-            <td class="home_btn"><%= link_to "ユーザーのレシピ一覧", recipes_user_path(user),class: "btn-block" %></td>
+            <td class="home_btn" align="center"><%= link_to "ユーザーのレシピ一覧", recipes_user_path(user),class: "btn-block" %></td>
           </tr>
           <tr>
-            <td class="home_btn"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn-block" %></td>
+            <td class="home_btn" align="center"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn-block" %></td>
           </tr>
           <% elsif current_page?(controller: 'users', action: 'recipes') %>
           <tr>
-            <td class="home_btn"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn-block" %></td>
+            <td class="home_btn" align="center"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn-block" %></td>
           </tr>
           <tr>
-            <td class="home_btn"><%= link_to "ユーザーのレポート一覧", reports_user_path(user),class: "btn-block" %></td>
+            <td class="home_btn" align="center"><%= link_to "ユーザーのレポート一覧", reports_user_path(user),class: "btn-block" %></td>
           </tr>
           <% elsif current_page?(controller: 'users', action: 'likes') %>
           <tr>
-            <td class="home_btn"><%= link_to "ユーザーのレシピ一覧", recipes_user_path(user),class: "btn-block" %></td>
+            <td class="home_btn" align="center"><%= link_to "ユーザーのレシピ一覧", recipes_user_path(user),class: "btn-block" %></td>
           </tr>
           <tr>
-            <td class="home_btn"><%= link_to "ユーザーのレポート一覧", reports_user_path(user),class: "btn-block" %></td>
+            <td class="home_btn" align="center"><%= link_to "ユーザーのレポート一覧", reports_user_path(user),class: "btn-block" %></td>
           </tr>
           <% end %>
         </tr>

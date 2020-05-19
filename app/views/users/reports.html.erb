@@ -20,7 +20,7 @@
             
           </td>
           <td class="col-xs-7">
-            <div class="report_title"><%= link_to @recipe.title, recipe_path(report.recipe) %></div>
+            <div class="report_title"><%= link_to report.recipe.title, recipe_path(report.recipe) %></div>
             <%= report.content %>
           </td>
           <td class="col-xs-2">
