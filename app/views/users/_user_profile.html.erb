@@ -15,23 +15,37 @@
       <tr>
         <td class="name" align="center"><%= link_to user_path(user) do %><strong>
           <%= user.nickname %></strong><% end %></td>
-      </tr>
-      <tr>
-        <th>自己紹介</th>
-      </tr>
-      <tr>
-        <td colspan="2"><%= user.profile_text %></td>
-      </tr>
-      <tr>
-    <% if current_page?(controller: 'users', action: 'reports') %>
-      <td class="home_btn"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn-block" %></td>
-      <td class="home_btn"><%= link_to "ユーザのレシピ一覧", recipes_user_path(user),class: "btn-block" %></td>
-    <% elsif current_page?(controller: 'users', action: 'recipes') %>
-      <td class="home_btn"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn-block" %></td>
-    <% elsif current_page?(controller: 'users', action: 'likes') %>
-      <td class="home_btn"><%= link_to "ユーザのレシピ一覧", recipes_user_path(user),class: "btn-block" %></td>
-    <% end %>
-      </tr>
-    </tbody>
-  </table>
-</div>
+        </tr>
+        <tr>
+          <th>自己紹介</th>
+        </tr>
+        <tr>
+          <td colspan="2"><%= user.profile_text %></td>
+        </tr>
+        <tr>
+          <% if current_page?(controller: 'users', action: 'reports') %>
+          <tr>
+            <td class="home_btn"><%= link_to "ユーザーのレシピ一覧", recipes_user_path(user),class: "btn-block" %></td>
+          </tr>
+          <tr>
+            <td class="home_btn"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn-block" %></td>
+          </tr>
+          <% elsif current_page?(controller: 'users', action: 'recipes') %>
+          <tr>
+            <td class="home_btn"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn-block" %></td>
+          </tr>
+          <tr>
+            <td class="home_btn"><%= link_to "ユーザーのレポート一覧", reports_user_path(user),class: "btn-block" %></td>
+          </tr>
+          <% elsif current_page?(controller: 'users', action: 'likes') %>
+          <tr>
+            <td class="home_btn"><%= link_to "ユーザーのレシピ一覧", recipes_user_path(user),class: "btn-block" %></td>
+          </tr>
+          <tr>
+            <td class="home_btn"><%= link_to "ユーザーのレポート一覧", reports_user_path(user),class: "btn-block" %></td>
+          </tr>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
