@@ -1,0 +1,59 @@
+<!-- コメント内容(２件) ------------------------------------------------------------------>
+<%= reports.count %>件コメント
+<h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
+<% reports.first(2).each do |report| %>
+<% unless report.id.nil? %>
+<li class="report-container">
+  <div class="report-box">
+    <div class="report-avatar">
+      <%= attachment_image_tag report.user, :profile_image, fallback: "no_image.jpg", class:"report-image", size: "40x40" %>
+    </div>
+    <div class="report-text">
+      <p><%= link_to "@#{report.user.nickname}", user_path(report.user.id) %></p>
+      <div class="report_image">
+      <%= attachment_image_tag report, :image, fallback: "no_image.jpg", class:"report-image", size: "100x100" %>
+    </div>
+      <div class="report-entry">
+        <%= report.content %>
+        <% if report.user == current_user %>
+        <%= link_to recipe_report_path(report.recipe_id, report.id), method: :delete, remote: true, class: "report_destroy" do %>
+        <i class="fas fa-trash" style="color: black;"></i>
+        <% end %>
+        <% end %>
+      </div>
+      <span class="report-date pull-right">
+        <%= report.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+      </span>
+    </div>
+  </div>
+</li>
+<% end %>
+<% end %>
+<!-- コメント内容(3件目以降) ------------------------------------------------------------------>
+<div class="collapse" id="collapseExample">
+  <% reports.offset(2).each do |report| %>
+  <% unless report.id.nil? %>
+  <li class="report-container">
+    <div class="report-box">
+      <div class="report-avatar">
+        <%= attachment_image_tag report.user, :profile_image, fallback: "no_image.jpg", class:"report-image", size: "40x40" %>
+      </div>
+      <div class="report-text">
+        <p><%= link_to "@#{report.user.nickname}", user_path(report.user.id) %></p>
+        <div class="report-entry">
+          <%= report.content %>
+          <% if report.user == current_user %>
+          <%= link_to recipe_report_path(report.recipe_id, report.id), method: :delete, remote: true, class: "report_destroy" do %>
+          <i class="fas fa-trash" style="color: black;"></i>
+          <% end %>
+          <% end %>
+        </div>
+        <span class="report-date pull-right">
+          <%= report.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+        </span>
+      </div>
+    </div>
+  </li>
+  <% end %>
+  <% end %>
+</div>

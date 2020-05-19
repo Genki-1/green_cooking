@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
     render :index
   end
 
+  private
   def comment_params
     params.require(:comment).permit(:content, :recipe_id, :user_id)
   end

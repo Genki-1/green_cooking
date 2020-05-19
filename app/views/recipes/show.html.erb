@@ -71,7 +71,7 @@
       <div class="recipe_comment_margin">
         <ul>
           <li class="comment-create">
-            <h3 class="text-left title">レビュー</h3>
+            <h3 class="text-left title">コメント</h3>
           </li>
           <li id="comments_area">
             <%= render partial: 'comments/index', locals: { comments: @comments } %>
@@ -80,11 +80,35 @@
         <hr>
         <div class="comment-create">
           <% if user_signed_in? %>
-          <h3 class="text-left">レビューを投稿する</h3>
+          <h3 class="text-left">コメントを投稿する</h3>
           <%= render partial: 'comments/form', locals: { comment: @comment, recipe: @recipe } %>
           <% else %>
           <div class="not_login" align="center">
             <%= link_to '会員ログイン', new_user_session_path %>　をするとコメントができるようになります。
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="report_show">
+      <div class="recipe_report_margin">
+        <ul>
+          <li class="report-create">
+            <h3 class="text-left title">レポート</h3>
+          </li>
+          <li id="reports_area">
+            <%= render partial: 'reports/index', locals: { reports: @reports } %>
+          </li>
+        </ul>
+        <hr>
+        <div class="report-create">
+          <% if user_signed_in? %>
+          <h3 class="text-left">レポートを投稿する</h3>
+          <%= render partial: 'reports/form', locals: { report: @report, recipe: @recipe } %>
+          <% else %>
+          <div class="not_login" align="center">
+            <%= link_to '会員ログイン', new_user_session_path %>　をするとレポートを投稿できるようになります。
           </div>
           <% end %>
         </div>

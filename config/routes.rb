@@ -11,11 +11,10 @@ Rails.application.routes.draw do
   resources :recipes, only: [:create, :index, :destroy, :new, :show, :edit, :update] do
     resources :comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy, :index]
+    resources :reports, only: [:create, :index, :destroy, :new, :edit, :update]
   end
 
   resources :homes, only: [:index]
-
-  resources :reports, only: [:create, :index, :destroy, :new, :edit, :update]
 
   resources :likes, only: [:create, :index, :destroy]
 
