@@ -1,6 +1,7 @@
 <!-- コメント内容(２件) ------------------------------------------------------------------>
 <%= reports.count %>件コメント
 <h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
+<ul>
 <% reports.first(2).each do |report| %>
 <% unless report.id.nil? %>
 <li class="report-container">
@@ -29,8 +30,10 @@
 </li>
 <% end %>
 <% end %>
+</ul>
 <!-- コメント内容(3件目以降) ------------------------------------------------------------------>
 <div class="collapse" id="collapseExample">
+  <ul>
   <% reports.offset(2).each do |report| %>
   <% unless report.id.nil? %>
   <li class="report-container">
@@ -56,4 +59,5 @@
   </li>
   <% end %>
   <% end %>
+</ul>
 </div>
