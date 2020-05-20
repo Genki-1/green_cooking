@@ -19,6 +19,14 @@ Rails.application.routes.draw do
   resources :likes, only: [:create, :index, :destroy]
 
   get 'users/confirm' => 'users#confirm'
+  patch 'users/hide' => 'users#hide'
+  put 'users/hide' => 'users#hide'
+
+  get 'users/following'
+  get 'users/followers'
+  get 'users/recipes'
+  get 'users/likes'
+  get 'users/reports'
 
   resources :users, only: [:index, :show, :edit, :update] do
     member do
@@ -26,17 +34,6 @@ Rails.application.routes.draw do
     end
   end
   resources :ralationships, only: [:create, :destroy]
-
-  # get 'users/confirm' => 'users#confirm'
-  get 'users/following'
-  get 'users/followers'
-  get 'users/recipes'
-  get 'users/likes'
-  get 'users/reports'
-
-  patch 'users/hide' => 'users#hide'
-  put 'users/hide' => 'users#hide'
-
 
   get 'homes/about'
 
