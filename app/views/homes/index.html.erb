@@ -1,4 +1,5 @@
 <div class="row">
+  <div class="col-xs-12 tops_index">
   <table class="table">
     <h1>レシピ一覧</h1>
     <tbody>
@@ -26,4 +27,6 @@
       <% end %>
     </tbody>
   </table>
+  <%= paginate @recipes %>
+</div>
 </div>
