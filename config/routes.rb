@@ -25,13 +25,15 @@ Rails.application.routes.draw do
   end
   resources :ralationships, only: [:create, :destroy]
 
-  get 'users/confirm'
-  get 'users/hide'
+  get 'users/confirm' => 'users#confirm'
   get 'users/following'
   get 'users/followers'
   get 'users/recipes'
   get 'users/likes'
   get 'users/reports'
+
+  patch 'users/hide' => 'users#hide'
+  put 'users/hide' => 'users#hide'
 
 
   get 'homes/about'

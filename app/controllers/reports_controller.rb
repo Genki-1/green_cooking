@@ -1,6 +1,5 @@
 class ReportsController < ApplicationController
 
-  before_action :report_params
 
   def new
   end
@@ -21,6 +20,7 @@ class ReportsController < ApplicationController
   end
 
   def destroy
+    @recipe = Recipe.find(params[:recipe_id])
     @report = Report.find(params[:id])
     @report.destroy
     render :index
