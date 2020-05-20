@@ -1,5 +1,4 @@
 $("#reports_area").html("<%= j(render 'index', { reports: @report.recipe.reports }) %>")
-$("textarea").val('')
 
-$("#reports_area").html("<%= j(render 'index', { reports: @report.recipe.reports }) %>")
-$("attachmentfield").val('')
+
+$("#report_form").html("<%= j(render 'reports/form', { report: @new_report, recipe: @recipe }) %>")

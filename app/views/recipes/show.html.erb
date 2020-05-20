@@ -105,7 +105,9 @@
         <div class="report-create">
           <% if user_signed_in? %>
           <h3 class="text-left">レポートを投稿する</h3>
+          <div id="report_form">
           <%= render partial: 'reports/form', locals: { report: @report, recipe: @recipe } %>
+          </div>
           <% else %>
           <div class="not_login" align="center">
             <%= link_to '会員ログイン', new_user_session_path %>　をするとレポートを投稿できるようになります。

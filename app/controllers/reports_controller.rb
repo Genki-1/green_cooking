@@ -8,6 +8,7 @@ class ReportsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     #投稿に紐づいたコメントを作成
     @report = @recipe.reports.build(report_params)
+    @new_report = Report.new
     @report.user_id = current_user.id
     @report.save
     render :index

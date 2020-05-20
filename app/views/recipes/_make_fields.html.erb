@@ -5,7 +5,8 @@
     <%= f.attachment_field :image, class: "achment_field", id: "image_select" %>
   </div>
 
+
     <%= f.label "process" %>
-    <%= f.text_area :process %>
+    <%= f.text_area :process, class: "recipe_input-mysize" %>
     <%= link_to_remove_association "消去", f %>
 </div>
