@@ -1,7 +1,8 @@
 <!-- コメント内容(２件) ------------------------------------------------------------------>
 <%= comments.count %>件コメント
 <h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
-<% comments.first(2).each do |comment| %>
+<ul>
+<% comments.limit(2).each do |comment| %>
 <% unless comment.id.nil? %>
 <li class="comment-container">
   <div class="comment-box">
@@ -26,8 +27,10 @@
 </li>
 <% end %>
 <% end %>
+</ul>
 <!-- コメント内容(3件目以降) ------------------------------------------------------------------>
 <div class="collapse" id="collapseExample">
+  <ul>
   <% comments.offset(2).each do |comment| %>
   <% unless comment.id.nil? %>
   <li class="comment-container">
@@ -53,4 +56,5 @@
   </li>
   <% end %>
   <% end %>
+</ul>
 </div>
