@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-xs-10 col-xs-offset-1">
+  <div class="col-xs-10 col-xs-offset-1 relationships_index">
     <h2>
       <% if current_user != @user %>
       <%= @user.nickname %>のフォロワー
@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @users.each do |user| %>
+        <% @page_users.each do |user| %>
         <tr>
           <td><%= attachment_image_tag user, :profile_image, :fill,50,50, format: 'jpeg', class: "profile-thumb", fallback: "no_image.jpg", size:'50x50' %></td>
           <td><%= user.nickname %></td>
@@ -28,6 +28,7 @@
         <% end %>
       </tbody>
     </table>
+    <%= paginate @page_users %><br>
 
     <%= link_to '戻る', 'javascript:history.back()',class: "btn btn-primary btn-sm" %>
   </div>

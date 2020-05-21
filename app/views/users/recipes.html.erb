@@ -10,7 +10,7 @@
       <p>全<strong><%= @recipes.count %></strong>件</p>
 
       <% if @recipes.present? %>
-      <% @recipes.each do |recipe| %>
+      <% @page_recipes.each do |recipe| %>
       <div class="recipe_div">
         <tr>
           <td class="col-xs-2">
@@ -38,5 +38,6 @@
       <div class="recipe_no_message" align="center">投稿レシピはありません</div>
       <% end %>
     </table>
+    <%= paginate @page_recipes %>
   </div>
 </div>

@@ -37,17 +37,20 @@ class UsersController < ApplicationController
     #@userがフォローしているユーザー
     @user  = User.find(params[:id])
     @users = @user.following
+    @page_users = @users.page(params[:page]).per(2)
   end
 
   def followers
     #@userをフォローしているユーザー
     @user  = User.find(params[:id])
     @users = @user.followers
+    @page_users = @users.page(params[:page]).per(2)
   end
 
   def recipes
     @user = User.find(params[:id])
     @recipes = Recipe.where(user_id: @user.id)
+    @page_recipes = @recipes.page(params[:page]).per(2)
   end
 
   def likes
