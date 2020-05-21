@@ -71,7 +71,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:nickname,:profile_image, :profile_text)
+    params.require(:user).permit(:nickname,:profile_image, :profile_text, :is_meat_status, :is_fish_status, :is_egg_status, :is_dairy_products_status)
   end
 
 end
