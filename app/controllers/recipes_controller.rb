@@ -54,6 +54,10 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
+  def search
+    #ransackの検索で使用する変数は、application_controllerのset_searchで定義済み
+  end
+
   private
   def recipe_params
     params.require(:recipe).permit(:user_id, :title, :description, :point, :main_image, :is_meat_status, :is_fish_status, :is_egg_status, :is_dairy_products_status, ingredients_attributes: [:id, :name, :quantity, :_destroy], makes_attributes: [:id, :process, :image, :_destroy])
