@@ -10,12 +10,8 @@
           <h3>プロフィール画像</h3>
           <div align="center">
             <%= attachment_image_tag @recipe, :profile_image, fallback: "no_image.jpg", size:'200x200', id: "profile_file-preview" %>
-            
-            
 
-            
               <%= f.attachment_field :profile_image, class: "btn btn-primary item_attachment_field", id: "profile_image_select"%>
-            
 
           </div>
         </div>
@@ -58,7 +54,7 @@
       </div>
     </div>
     <div class="action" align="center">
-      <%= f.submit "　　ユーザー情報を変更する　　" ,class: "btn btn-blue btn-lg" %>
+      <%= f.submit "　　ユーザー情報を変更する　　" ,class: "btn btn-primary btn-lg" %>
     </div>
     <div class="action" align="right">
       <%= link_to "退会する",  users_confirm_path, class: "btn btn-danger" %>

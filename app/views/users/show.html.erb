@@ -33,40 +33,40 @@
               <tr>
                 <th class="col-xs-5">フォロー</th>
                 <td class="col-xs-2" align="center" id="following_count"><%= @user.following.count %></td>
-                <td class="col-xs-5"><%= link_to "フォローの一覧",  following_user_path(@user),class: "btn btn-blue" %></td>
+                <td class="col-xs-5"><%= link_to "フォローの一覧",  following_user_path(@user),class: "btn btn-primary" %></td>
               </tr>
               <tr>
                 <th class="col-xs-5">フォロワー</th>
                 <td class="col-xs-2" align="center" id="followers_count"><%= @user.followers.count %></td>
-                <td class="col-xs-5"><%= link_to "フォロワーの一覧",  followers_user_path(@user),class: "btn btn-blue" %></td>
+                <td class="col-xs-5"><%= link_to "フォロワーの一覧",  followers_user_path(@user),class: "btn btn-primary" %></td>
               </tr>
               <tr>
                 <th class="col-xs-5">投稿したレシピ数</th>
                 <td class="col-xs-2" align="center"><%= @recipes.count %></td>
-                <td class="col-xs-5"><%= link_to "投稿レシピ一覧へ", recipes_user_path(@user),class: "btn btn-blue" %></td>
+                <td class="col-xs-5"><%= link_to "投稿レシピ一覧へ", recipes_user_path(@user),class: "btn btn-primary" %></td>
               </tr>
               <tr>
                 <th class="col-xs-5">いいねしたレシピ数</th>
                 <td class="col-xs-2" align="center"><%= @user.likes.count %></td>
                 <td>
-                  <%= link_to "いいねしたレシピ一覧へ", likes_user_path(@user),class: "btn btn-blue" %></td>
+                  <%= link_to "いいねしたレシピ一覧へ", likes_user_path(@user),class: "btn btn-primary" %></td>
                 </tr>
                 <tr>
                   <th class="col-xs-5">投稿したレポート数</th>
                   <td class="col-xs-2" align="center"><%= @reports.count %></td>
-                  <td class="col-xs-5"><%= link_to "投稿レポート覧へ", reports_user_path(@user),class: "btn btn-blue" %></td>
+                  <td class="col-xs-5"><%= link_to "投稿レポート覧へ", reports_user_path(@user),class: "btn btn-primary" %></td>
                 </tr>
               </tbody>
             </table>
             <div class="user_edit_btn" align="center">
               <% if current_user == @user %>
-              <%= link_to "編集する", edit_user_path(@user),class: "btn btn-red btn-lg" %>
+              <%= link_to "編集する", edit_user_path(@user),class: "btn btn-success btn-lg" %>
               <% end %>
             </div>
           </div>
 
           <div>
-            <%= link_to '戻る', 'javascript:history.back()',class: "btn btn-blue" %>
+            <%= link_to '戻る', 'javascript:history.back()',class: "btn btn-primary" %>
           </div>
         </div>
       </div>

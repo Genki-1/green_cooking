@@ -1,8 +1,7 @@
 <div class="nested-fields row">
   <div class="col-xs-4">
-    <%= f.label "image" %>
     <%= attachment_image_tag @makes, :image,:fill, 100,100,fallback: "no_image.jpg", size:'100x100', id: "file-preview" %>
-    <%= f.attachment_field :image, class: "achment_field", id: "image_select" %>
+    <%= f.attachment_field :image, class: "btn btn-primary achment_field", id: "image_select" %>
   </div>
 
   <div class="col-xs-8">
