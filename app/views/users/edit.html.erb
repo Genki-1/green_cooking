@@ -19,6 +19,36 @@
           <%= f.text_field :nickname, class: 'form-control' %>
           <h3>自己紹介文</h3>
           <%= f.text_area :profile_text, rows:'4' ,class: 'form-control' %>
+          
+          <table class="table table-borderless">
+          <div class="field">
+          <div class="recipe_status">
+            <tr>
+              <th>肉</th>
+              <td><%= f.radio_button :is_meat_status, "false" %>表示<%= f.radio_button :is_meat_status, "ture" %>非表示</td>
+            </tr>
+          </div>
+          <div class="recipe_status">
+            <tr>
+              <th>魚</th>
+              <td><%= f.radio_button :is_fish_status, "false" %>表示<%= f.radio_button :is_fish_status, "ture" %>非表示</td>
+            </tr>
+          </div>
+          <div class="recipe_status">
+            <tr>
+              <th>卵</th>
+              <td><%= f.radio_button :is_egg_status, "false" %>表示<%= f.radio_button :is_egg_status, "ture" %>非表示</td>
+            </tr>
+          </div>
+          <div class="recipe_status">
+            <tr>
+              <th>乳製品</th>
+              <td><%= f.radio_button :is_dairy_products_status, "false" %>表示<%= f.radio_button :is_dairy_products_status, "ture" %>非表示</td>
+            </tr>
+          </div>
+        </div>
+      </table>
+
         </div>
       </div>
     </div>
