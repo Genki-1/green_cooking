@@ -10,10 +10,6 @@ Rails.application.routes.draw do
 
   resources :recipes do
 
-    collection do
-      get 'search' => 'recipes#search', as: 'search'
-    end
-
     resources :comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy, :index]
     resources :reports, only: [:create, :destroy, :new, :edit, :update]

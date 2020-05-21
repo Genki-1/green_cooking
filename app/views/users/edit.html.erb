@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-xs-10 col-xs-offset-1">
     <h2>ユーザー情報変更</h2>
-      <!-- エラーメッセージ -->
-      <!-- エラーメッセージ -->
+    <!-- エラーメッセージ -->
+    <!-- エラーメッセージ -->
     <%= form_for @user, url: user_path do |f| %>
     <div class="user_profile">
       <div class="row user_profile_margin">
@@ -21,42 +21,42 @@
           <%= f.text_area :profile_text, rows:'4' ,class: 'form-control' %>
           
           <table class="table table-borderless">
-          <div class="field">
-          <div class="recipe_status">
-            <tr>
-              <th>肉</th>
-              <td><%= f.radio_button :is_meat_status, "false" %>表示<%= f.radio_button :is_meat_status, "ture" %>非表示</td>
-            </tr>
-          </div>
-          <div class="recipe_status">
-            <tr>
-              <th>魚</th>
-              <td><%= f.radio_button :is_fish_status, "false" %>表示<%= f.radio_button :is_fish_status, "ture" %>非表示</td>
-            </tr>
-          </div>
-          <div class="recipe_status">
-            <tr>
-              <th>卵</th>
-              <td><%= f.radio_button :is_egg_status, "false" %>表示<%= f.radio_button :is_egg_status, "ture" %>非表示</td>
-            </tr>
-          </div>
-          <div class="recipe_status">
-            <tr>
-              <th>乳製品</th>
-              <td><%= f.radio_button :is_dairy_products_status, "false" %>表示<%= f.radio_button :is_dairy_products_status, "ture" %>非表示</td>
-            </tr>
-          </div>
-        </div>
-      </table>
+            <div class="field">
+              <div class="recipe_status">
+                <tr>
+                  <th>肉</th>
+                  <td><%= f.radio_button :is_meat_status, "false" %>表示<%= f.radio_button :is_meat_status, "ture" %>非表示</td>
+                </tr>
+              </div>
+              <div class="recipe_status">
+                <tr>
+                  <th>魚</th>
+                  <td><%= f.radio_button :is_fish_status, "false" %>表示<%= f.radio_button :is_fish_status, "ture" %>非表示</td>
+                </tr>
+              </div>
+              <div class="recipe_status">
+                <tr>
+                  <th>卵</th>
+                  <td><%= f.radio_button :is_egg_status, "false" %>表示<%= f.radio_button :is_egg_status, "ture" %>非表示</td>
+                </tr>
+              </div>
+              <div class="recipe_status">
+                <tr>
+                  <th>乳製品</th>
+                  <td><%= f.radio_button :is_dairy_products_status, "false" %>表示<%= f.radio_button :is_dairy_products_status, "ture" %>非表示</td>
+                </tr>
+              </div>
+            </div>
+          </table>
 
         </div>
       </div>
     </div>
     <div class="action" align="center">
-        <%= f.submit "　　ユーザー情報を変更する　　" ,class: "btn btn-blue btn-lg" %>
+      <%= f.submit "　　ユーザー情報を変更する　　" ,class: "btn btn-blue btn-lg" %>
     </div>
     <div class="action" align="right">
-        <%= link_to "退会する",  users_confirm_path, class: "btn btn-danger" %>
+      <%= link_to "退会する",  users_confirm_path, class: "btn btn-danger" %>
     </div>
     <% end %>
   </div>
@@ -74,5 +74,5 @@
     // img要素に表示
     var img = document.getElementById('profile_file-preview');
     img.src = blobUrl;
-});
+  });
 </script>

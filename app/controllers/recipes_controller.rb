@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   def index
-    @recipes=Recipe.all
-    @recipes = Recipe.page(params[:page]).per(5)
+    # @recipes=Recipe.all
+    # @recipes = Recipe.page(params[:page]).per(5)
   end
 
   def show
@@ -52,10 +52,6 @@ class RecipesController < ApplicationController
     recipe = Recipe.find(params[:id])
     recipe.destroy
     redirect_to recipes_path
-  end
-
-  def search
-    #ransackの検索で使用する変数は、application_controllerのset_searchで定義済み
   end
 
   private
