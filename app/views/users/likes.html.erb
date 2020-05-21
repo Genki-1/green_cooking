@@ -10,7 +10,7 @@
       <p>全<strong><%= @recipes.count %></strong>件</p>
       <div class="recipe_index">
         <% if @recipes.present? %>
-        <% @recipes.each do |recipe| %>
+        <% @page_recipes.each do |recipe| %>
         <div class="recipe_div">
           <tr>
             <td class="col-xs-2">
@@ -41,5 +41,6 @@
         <% end %>
       </div>
     </table>
+    <%= paginate @page_recipes %>
   </div>
 </div>

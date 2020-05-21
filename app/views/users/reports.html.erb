@@ -10,7 +10,7 @@
       <p>全<strong><%= @reports.count %></strong>件</p>
 
       <% if @reports.present? %>
-      <% @reports.each do |report| %>
+      <% @page_reports.each do |report| %>
       <div class="report_div">
         <tr>
           <td class="col-xs-2">
@@ -33,5 +33,6 @@
       <div class="report_no_message" align="center">投稿レシピはありません</div>
       <% end %>
     </table>
+    <%= paginate @page_reports %>
   </div>
 </div>

@@ -56,11 +56,13 @@ class UsersController < ApplicationController
   def likes
     @user = User.find(params[:id])
     @recipes = @user.like_recipes.includes(:user)
+    @page_recipes = @recipes.page(params[:page]).per(2)
   end
 
   def reports
     @user = User.find(params[:id])
     @reports = Report.where(user_id: @user.id)
+    @page_reports = @reports.page(params[:page]).per(2)
   end
 
   private
