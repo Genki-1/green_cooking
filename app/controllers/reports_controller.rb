@@ -22,6 +22,7 @@ class ReportsController < ApplicationController
   end
 
   def destroy
+    @new_report = Report.new
     @recipe = Recipe.find(params[:recipe_id])
     @report = Report.find(params[:id])
     @reports = @recipe.reports.order(:created_at)

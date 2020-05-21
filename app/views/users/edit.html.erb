@@ -10,8 +10,13 @@
           <h3>プロフィール画像</h3>
           <div align="center">
             <%= attachment_image_tag @recipe, :profile_image, fallback: "no_image.jpg", size:'200x200', id: "profile_file-preview" %>
-            <%= f.attachment_field :profile_image, class: "btn btn-blue item_attachment_field", id: "profile_image_select"%>
-            <label for="image_select" class="btn btn-blue item_attachment_field" style="display: block;">画像選択</label>
+            
+            
+
+            
+              <%= f.attachment_field :profile_image, class: "btn btn-primary item_attachment_field", id: "profile_image_select"%>
+            
+
           </div>
         </div>
         <div class="col-xs-7">
@@ -25,25 +30,25 @@
               <div class="recipe_status">
                 <tr>
                   <th>肉</th>
-                  <td><%= f.radio_button :is_meat_status, "false" %>表示<%= f.radio_button :is_meat_status, "ture" %>非表示</td>
+                  <td><%= f.radio_button :is_meat_status, "false" %>表示<%= f.radio_button :is_meat_status, "true" %>非表示</td>
                 </tr>
               </div>
               <div class="recipe_status">
                 <tr>
                   <th>魚</th>
-                  <td><%= f.radio_button :is_fish_status, "false" %>表示<%= f.radio_button :is_fish_status, "ture" %>非表示</td>
+                  <td><%= f.radio_button :is_fish_status, "false" %>表示<%= f.radio_button :is_fish_status, "true" %>非表示</td>
                 </tr>
               </div>
               <div class="recipe_status">
                 <tr>
                   <th>卵</th>
-                  <td><%= f.radio_button :is_egg_status, "false" %>表示<%= f.radio_button :is_egg_status, "ture" %>非表示</td>
+                  <td><%= f.radio_button :is_egg_status, "false" %>表示<%= f.radio_button :is_egg_status, "true" %>非表示</td>
                 </tr>
               </div>
               <div class="recipe_status">
                 <tr>
                   <th>乳製品</th>
-                  <td><%= f.radio_button :is_dairy_products_status, "false" %>表示<%= f.radio_button :is_dairy_products_status, "ture" %>非表示</td>
+                  <td><%= f.radio_button :is_dairy_products_status, "false" %>表示<%= f.radio_button :is_dairy_products_status, "true" %>非表示</td>
                 </tr>
               </div>
             </div>

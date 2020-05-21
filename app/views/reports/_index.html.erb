@@ -1,6 +1,6 @@
 <!-- コメント内容(２件) ------------------------------------------------------------------>
 <%= reports.count %>件コメント
-<h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
+<h6 class="more" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">もっと見る....</h6>
 <ul>
 <% reports.first(2).each do |report| %>
 <% unless report.id.nil? %>
@@ -32,7 +32,7 @@
 <% end %>
 </ul>
 <!-- コメント内容(3件目以降) ------------------------------------------------------------------>
-<div class="collapse" id="collapseExample">
+<div class="collapse" id="collapseExample2">
   <ul>
   <% reports.offset(2).each do |report| %>
   <% unless report.id.nil? %>
@@ -43,6 +43,9 @@
       </div>
       <div class="report-text">
         <p><%= link_to "@#{report.user.nickname}", user_path(report.user.id) %></p>
+        <div class="report_image">
+      <%= attachment_image_tag report, :image, fallback: "no_image.jpg", class:"report-image", size: "100x100" %>
+    </div>
         <div class="report-entry">
           <%= report.content %>
           <% if report.user == current_user %>
