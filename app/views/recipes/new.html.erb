@@ -16,7 +16,7 @@
       <div class="field">
         <h3>完成画像</h3>
         <%= attachment_image_tag @recipe, :main_image,:fill, 300,200,fallback: "no_image.jpg", size:'300x200', id: "main_file-preview" %>
-        <%= f.attachment_field :main_image, class: "btn btn-primary image_form achment_field", id: "main_image_select" %>
+        <%= f.attachment_field :main_image, class: "btn btn-primary image_form achment_field recipe_btn", id: "main_image_select" %>
       </div>
     </div>
 
@@ -24,24 +24,24 @@
       <table class="table table-borderless">
         <div class="title">
           <tr>
-            <th>レシピ名</th><td><%= f.text_field :title %></td>
+            <th>レシピ名</th><td><%= f.text_field :title, class: "recipe_input-mysize" %></td>
           </tr>
         </div>
         <div class="description">
           <tr>
-            <th>説明文</th><td><%= f.text_area :description %></td>
+            <th>説明文</th><td><%= f.text_area :description, class: "recipe_input-mysize" %></td>
           </tr>
         </div>
         <div class="point">
           <tr>
-            <th>ポイント</th><td><%= f.text_area :point %></td>
+            <th>ポイント</th><td><%= f.text_area :point, class: "recipe_input-mysize" %></td>
           </tr>
         </div>
       </table>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row recipe_field">
     <div class="col-xs-5">
       <table class="table table-borderless">
 

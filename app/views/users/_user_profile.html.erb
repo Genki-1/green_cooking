@@ -25,24 +25,24 @@
         <tr>
           <% if current_page?(controller: 'users', action: 'reports') %>
           <tr>
-            <td class="home_btn" align="center"><%= link_to "ユーザーのレシピ一覧", recipes_user_path(user),class: "btn-block" %></td>
+            <td class="home_btn" align="center"><%= link_to "ユーザーのレシピ一覧", recipes_user_path(user),class: "btn btn-primary" %></td>
           </tr>
           <tr>
-            <td class="home_btn" align="center"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn-block" %></td>
+            <td class="home_btn" align="center"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn btn-primary" %></td>
           </tr>
           <% elsif current_page?(controller: 'users', action: 'recipes') %>
           <tr>
-            <td class="home_btn" align="center"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn-block" %></td>
+            <td class="home_btn" align="center"><%= link_to "いいねしたレシピ一覧", likes_user_path(user),class: "btn btn-primary" %></td>
           </tr>
           <tr>
-            <td class="home_btn" align="center"><%= link_to "ユーザーのレポート一覧", reports_user_path(user),class: "btn-block" %></td>
+            <td class="home_btn" align="center"><%= link_to "ユーザーのレポート一覧", reports_user_path(user),class: "btn btn-primary" %></td>
           </tr>
           <% elsif current_page?(controller: 'users', action: 'likes') %>
           <tr>
-            <td class="home_btn" align="center"><%= link_to "ユーザーのレシピ一覧", recipes_user_path(user),class: "btn-block" %></td>
+            <td class="home_btn" align="center"><%= link_to "ユーザーのレシピ一覧", recipes_user_path(user),class: "btn btn-primary" %></td>
           </tr>
           <tr>
-            <td class="home_btn" align="center"><%= link_to "ユーザーのレポート一覧", reports_user_path(user),class: "btn-block" %></td>
+            <td class="home_btn" align="center"><%= link_to "ユーザーのレポート一覧", reports_user_path(user),class: "btn btn-primary" %></td>
           </tr>
           <% end %>
         </tr>
