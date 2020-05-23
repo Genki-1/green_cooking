@@ -6,7 +6,7 @@
     <%= csp_meta_tag %>
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
@@ -15,9 +15,6 @@
       <% if signed_in? %>
 
       <div class="container">
-        <nav class="nav navbar-nav navbar-left">
-          <span>green_cooking</span>
-        </nav>
         <nav>
           <ul class="nav navbar-nav navbar-right">
 
@@ -35,9 +32,6 @@
       <% else %>
 
       <div class="container">
-        <nav class="nav navbar-nav navbar-left">
-          <span>green_cooking</span>
-        </nav>
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to 'Top', root_path %></li>
@@ -58,7 +52,7 @@
       </div>
       <div class="col-xs-4 search_form">
         <%= search_form_for @q, url: recipes_path,html: { method: :get } do |f| %>
-        <%= f.text_field :title_cont, placeholder: 'キーワードで検索', class: "form-control" %>
+        <%= f.text_field :title_or_description_or_ingredients_name_cont, placeholder: 'キーワードで検索', class: "form-control" %>
       </div>
       <div class="col-xs-1 search_form search_btn">
         <%= f.submit "検索",class: "btn btn-primary" %>
