@@ -4,4 +4,6 @@ class Make < ApplicationRecord
 
   attachment :image
 
+  validates :process, presence: true, length: { maximum: 60 }
+
 end
