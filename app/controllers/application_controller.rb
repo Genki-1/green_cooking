@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   def set_search
     @q = Recipe.ransack(params[:q])
 
-    @recipes = @q.result(distinct: true)
+    @recipes = @q.result(distinct: true).order(created_at: :desc)
     if user_signed_in?
       if current_user.is_meat_status
         @recipes = @recipes.where.not(is_meat_status: true)

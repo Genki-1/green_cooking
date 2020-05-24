@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   def index
-    @all_ranks = Recipe.joins(:likes).group(:recipe_id)
+    @all_ranks = Recipe.joins(:likes).group(:recipe_id).order(created_at: :desc)
     if user_signed_in?
       if current_user.is_meat_status
         @recipes = @recipes.where.not(is_meat_status: true)
@@ -20,6 +20,7 @@ class HomesController < ApplicationController
       end
     end
     @page_recipes = @recipes.page(params[:page]).per(5)
+    
     food_like_count = @all_ranks.count
     food_liked_ids = Hash[food_like_count.sort_by{ |_, v| -v }].keys
     @ranking_recipes = []
