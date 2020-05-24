@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-10">
-  <h1>レシピ詳細画面</h1>
-</div>
+    <h1>レシピ詳細画面</h1>
+  </div>
 
   <div class="col-xs-2 like_show_btn" id="show_like_<%= @recipe.id %>">
     <%= render 'likes/like', recipe: @recipe %>
@@ -9,21 +9,21 @@
 </div>
 
 <div class="row">
-
+<% @page_recipes.each do |recipe| %>
   <div class="col-xs-12">
 
     <div class="recipe_show">
       <div class="recipe_show_margin">
         <h2>
-          <%= @recipe.title %>
+          <%= recipe.title %>
           <span class="post_user">
             <p>
-              投稿者：<%= link_to @recipe.user.nickname, user_path(@recipe.user.id)%>
+              投稿者：<%= link_to recipe.user.nickname, user_path(recipe.user.id)%>
 
 
-              <% if @recipe.user == current_user %>
-              <%= link_to "編集", edit_recipe_path(@recipe),class: "btn btn-sm" %>
-              <%= link_to "消去", recipe_path(@recipe), method: :delete, data: {confirm: "本当に消しますか?"}, class: "btn btn-sm" %>
+              <% if recipe.user == current_user %>
+              <%= link_to "編集", edit_recipe_path(recipe),class: "btn btn-sm" %>
+              <%= link_to "消去", recipe_path(recipe), method: :delete, data: {confirm: "本当に消しますか?"}, class: "btn btn-sm" %>
               <% end %>
             </p>
           </span>
@@ -31,12 +31,20 @@
       </div>
       <div class="row recipe_show_margin">
         <p>
-          投稿時間：<%= @recipe.created_at.to_s(:datetime_jp) %>
+          投稿時間：<%= recipe.created_at.to_s(:datetime_jp) %>
         </p>
         <div class="col-xs-5 recipe_show_image">
-          <%= attachment_image_tag @recipe, :main_image, :fill, 300,200,format: "jpeg" , fallback: "no_image.jpg", size:'300x200' %>
+          <div>
+          <%= attachment_image_tag recipe, :main_image, :fill, 300,200,format: "jpeg" , fallback: "no_image.jpg", size:'300x200' %>
+        </div>
+        <div>
+          <h3>ポイント・コツ</h3>
+          <%= recipe.point %>
+        </div>
         </div>
         <div class="col-xs-7">
+          <h3>料理説明</h3>
+          <%= recipe.description %>
 
           <h3>レシピ材料</h3>
           <table class="table ingredient_table">
@@ -81,7 +89,7 @@
         <div class="comment-create">
           <% if user_signed_in? %>
           <h3 class="text-left">コメントを投稿する</h3>
-          <%= render partial: 'comments/form', locals: { comment: @comment, recipe: @recipe } %>
+          <%= render partial: 'comments/form', locals: { comment: @comment, recipe: recipe } %>
           <% else %>
           <div class="not_login" align="center">
             <%= link_to '会員ログイン', new_user_session_path %>　をするとコメントができるようになります。
@@ -106,7 +114,7 @@
           <% if user_signed_in? %>
           <h3 class="text-left">レポートを投稿する</h3>
           <div id="report_form">
-          <%= render partial: 'reports/form', locals: { report: @report, recipe: @recipe } %>
+          <%= render partial: 'reports/form', locals: { report: @report, recipe: recipe } %>
           </div>
           <% else %>
           <div class="not_login" align="center">
@@ -118,4 +126,5 @@
     </div>
 
   </div>
+  <% end %>
 </div>
