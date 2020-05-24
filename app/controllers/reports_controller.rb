@@ -1,9 +1,5 @@
 class ReportsController < ApplicationController
 
-
-  def new
-  end
-
   def create
     @recipe = Recipe.find(params[:recipe_id])
     #投稿に紐づいたコメントを作成
@@ -13,12 +9,6 @@ class ReportsController < ApplicationController
     @report.user_id = current_user.id
     @report.save
     render :index
-  end
-
-  def edit
-  end
-
-  def update
   end
 
   def destroy
