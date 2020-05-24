@@ -1,5 +1,5 @@
-<h1>レシピ新規登録画面</h1>
 <div class="row recipe_new">
+  <h1>レシピ編集画面</h1>
   <%= form_for(@recipe, url:recipe_path) do |f| %>
   
   <% if @recipe.errors.any? %>
@@ -25,17 +25,22 @@
       <table class="table table-borderless">
         <div class="title">
           <tr>
-            <th>レシピ名</th><td><%= f.text_field :title %></td>
+            <th>レシピ名</th><td><%= f.text_field :title, class: "recipe_input-mysize" %></td>
           </tr>
         </div>
         <div class="description">
           <tr>
-            <th>説明文</th><td><%= f.text_area :description %></td>
+            <th>説明文</th><td><%= f.text_area :description, class: "recipe_input-mysize" %></td>
           </tr>
         </div>
         <div class="point">
           <tr>
-            <th>ポイント</th><td><%= f.text_area :point %></td>
+            <th>ポイント</th><td><%= f.text_area :point, class: "recipe_input-mysize" %></td>
+          </tr>
+        </div>
+        <div class="number_of_people">
+          <tr>
+            <th>何人分 (例：2人分)</th><td><%= f.text_field :number_of_people, class: "recipe_input-mysize" %></td>
           </tr>
         </div>
       </table>

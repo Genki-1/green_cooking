@@ -15,7 +15,7 @@
     <div class="col-xs-5">
       <div class="field">
         <h3>完成画像</h3>
-        <%= attachment_image_tag @recipe, :main_image,:fill, 300,200,fallback: "no_image.jpg", size:'300x200', id: "main_file-preview" %>
+        <%= attachment_image_tag @recipe, :main_image,:fill, 300,200,fallback: "no_image.jpg", size:'300x200', id: "main_file_preview" %>
         <%= f.attachment_field :main_image, class: "btn btn-primary image_form achment_field recipe_btn", id: "main_image_select" %>
       </div>
     </div>
@@ -29,7 +29,7 @@
         </div>
         <div class="description">
           <tr>
-            <th>説明文</th><td><%= f.text_area :description, class: "recipe_input-mysize" %></td>
+            <th>説明</th><td><%= f.text_area :description, class: "recipe_input-mysize" %></td>
           </tr>
         </div>
         <div class="point">
@@ -39,7 +39,7 @@
         </div>
         <div class="number_of_people">
           <tr>
-            <th>何人分 (例: 2人分)</th><td><%= f.text_field :number_of_people, class: "recipe_input-mysize" %></td>
+            <th>何人分 (例：2人分)</th><td><%= f.text_field :number_of_people, class: "recipe_input-mysize" %></td>
           </tr>
         </div>
       </table>
@@ -81,8 +81,8 @@
 
     <div class="col-xs-7">
       <div class="recipes">
-        <%= f.fields_for :ingredients do |t| %>
-        <%= render "ingredient_fields", f: t %>
+        <%= f.fields_for :ingredients do |ingredient_fields| %>
+        <%= render "ingredient_fields", f: ingredient_fields %>
         <% end %>
         <div class="links">
           <%= link_to_add_association "追加", f, :ingredients %>
@@ -96,8 +96,8 @@
 
 
       <div class="recipes">
-        <%= f.fields_for :makes do |t| %>
-        <%= render "make_fields", f: t %>
+        <%= f.fields_for :makes do |make_fields| %>
+          <%= render "make_fields", f: make_fields %>
         <% end %>
         <div class="links">
           <%= link_to_add_association "追加", f, :makes %>
@@ -124,11 +124,11 @@
     var blobUrl = window.URL.createObjectURL(file);
 
     // img要素に表示
-    var img = document.getElementById('main_file-preview');
+    var img = document.getElementById('main_file_preview');
     img.src = blobUrl;
-});
+  });
 
-  document.getElementById('image_select').addEventListener('change', function (e) {
+  $(document).on('change', '.image_select', function (e) {
     // 1枚だけ表示する
     var file = e.target.files[0];
 
@@ -136,9 +136,8 @@
     var blobUrl = window.URL.createObjectURL(file);
 
     // img要素に表示
-    var img = document.getElementById('file-preview');
-    img.src = blobUrl;
-});
+    $(this).parent('div').find('.file_preview').attr("src", blobUrl);
+  });
 </script>
 
 
