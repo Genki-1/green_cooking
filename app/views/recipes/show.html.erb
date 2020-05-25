@@ -34,7 +34,7 @@
         </p>
         <div class="col-xs-5 recipe_show_image">
           <div>
-          <%= attachment_image_tag @recipe, :main_image, :fill, 300,200,format: "jpeg" , fallback: "no_image.jpg", size:'300x200' %>
+          <%= attachment_image_tag @recipe, :main_image, :fill, 260,260,format: "jpeg" , fallback: "no_image.jpg", size:'260x260' %>
         </div>
         <div>
           <h3>ポイント・コツ</h3>
@@ -45,7 +45,7 @@
           <h3>説明</h3>
           <%= @recipe.description %>
 
-          <h3>材料  <%= @recipe.number_of_people %></h3>
+          <h3>材料　<%= @recipe.number_of_people %></h3>
           <table class="table ingredient_table">
             <% @recipe.ingredients.each do |ingredient| %>
             <tbody>
