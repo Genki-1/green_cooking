@@ -11,7 +11,7 @@
           <div align="center">
             <%= attachment_image_tag @recipe, :profile_image, fallback: "no_image.jpg", size:'200x200', id: "profile_file-preview" %>
 
-              <%= f.attachment_field :profile_image, class: "btn btn-primary item_attachment_field", id: "profile_image_select"%>
+              <%= f.attachment_field :profile_image, class: "btn btn-primary item_attachment_field image_btn", id: "profile_image_select"%>
 
           </div>
         </div>
@@ -26,25 +26,25 @@
               <div class="recipe_status">
                 <tr>
                   <th>肉</th>
-                  <td><%= f.radio_button :is_meat_status, "false" %>表示<%= f.radio_button :is_meat_status, "true" %>非表示</td>
+                  <td><%= f.radio_button :is_meat_status, "false" %> 表示　　<%= f.radio_button :is_meat_status, "true" %> 非表示</td>
                 </tr>
               </div>
               <div class="recipe_status">
                 <tr>
                   <th>魚</th>
-                  <td><%= f.radio_button :is_fish_status, "false" %>表示<%= f.radio_button :is_fish_status, "true" %>非表示</td>
+                  <td><%= f.radio_button :is_fish_status, "false" %> 表示　　<%= f.radio_button :is_fish_status, "true" %> 非表示</td>
                 </tr>
               </div>
               <div class="recipe_status">
                 <tr>
                   <th>卵</th>
-                  <td><%= f.radio_button :is_egg_status, "false" %>表示<%= f.radio_button :is_egg_status, "true" %>非表示</td>
+                  <td><%= f.radio_button :is_egg_status, "false" %> 表示　　<%= f.radio_button :is_egg_status, "true" %> 非表示</td>
                 </tr>
               </div>
               <div class="recipe_status">
                 <tr>
                   <th>乳製品</th>
-                  <td><%= f.radio_button :is_dairy_products_status, "false" %>表示<%= f.radio_button :is_dairy_products_status, "true" %>非表示</td>
+                  <td><%= f.radio_button :is_dairy_products_status, "false" %> 表示　　<%= f.radio_button :is_dairy_products_status, "true" %> 非表示</td>
                 </tr>
               </div>
             </div>

@@ -16,7 +16,7 @@
       <div class="field">
         <h3>完成画像</h3>
         <%= attachment_image_tag @recipe, :main_image,:fill, 260,260,fallback: "no_image.jpg", size:'260x260', id: "main_file_preview" %>
-        <%= f.attachment_field :main_image, class: "btn btn-primary image_form achment_field recipe_btn", id: "main_image_select" %>
+        <%= f.attachment_field :main_image, class: "btn btn-primary image_form achment_field image_btn", id: "main_image_select" %>
       </div>
     </div>
 
@@ -34,7 +34,7 @@
         </div>
         <div class="point">
           <tr>
-            <th>ポイント</th><td><%= f.text_area :point, class: "recipe_input-mysize" %></td>
+            <th>コツ・ポイント</th><td><%= f.text_area :point, class: "recipe_input-mysize" %></td>
           </tr>
         </div>
         <div class="number_of_people">
