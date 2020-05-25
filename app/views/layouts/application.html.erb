@@ -30,7 +30,7 @@
       <div class="container">
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to 'ABOUT', homes_about_path %></li>
+            <li><%= link_to 'About', homes_about_path %></li>
             <li><%= link_to 'レシピ一覧', recipes_path %></li>
             <li><%= link_to '会員登録',new_user_registration_path %></li>
             <li><%= link_to 'ログイン', new_user_session_path %></li>
@@ -57,5 +57,16 @@
       </div>
       <%= yield %>
     </div>
+
+    <footer>
+    <div class="container">
+          <h5 class="col-xs-7"><%= link_to 'About「Green Cooking」',homes_about_path %></h5>
+          <span id="back">
+            <a href="#">
+              <h5 class="col-xs-2">ページトップへ</h5>
+            </a>
+          </span>
+    </div>
+    </footer>
   </body>
 </html>
