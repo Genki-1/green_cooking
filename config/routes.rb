@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get 'users/likes'
   get 'users/reports'
 
-  resources :users, only: [:index, :show, :edit, :update] do
+  resources :users, only: [:show, :edit, :update] do
     member do
       get :following, :followers, :recipes, :likes, :reports
     end

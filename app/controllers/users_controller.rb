@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  def index
-  end
+
+  before_action :ensure_correct_user, only: [:edit, :update, :confirm, :hide]
 
   def show
     @user  = User.find(params[:id])
@@ -72,6 +72,17 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:nickname,:profile_image, :profile_text, :is_meat_status, :is_fish_status, :is_egg_status, :is_dairy_products_status)
+  end
+
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    if user_signed_in?
+      if @user.id != current_user.id
+       redirect_to root_path
+      end
+    else
+      redirect_to new_user_session_path
+    end
   end
 
 end

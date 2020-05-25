@@ -1,4 +1,9 @@
 class RecipesController < ApplicationController
+
+  before_action :ensure_correct_recipe_user, only: [:edit, :update, :destroy]
+
+  before_action :login_check, only: [:new, :create, :edit, :update, :destroy]
+
   def index
   end
 
@@ -53,6 +58,23 @@ class RecipesController < ApplicationController
   private
   def recipe_params
     params.require(:recipe).permit(:user_id, :title, :description, :point, :main_image, :number_of_people, :is_meat_status, :is_fish_status, :is_egg_status, :is_dairy_products_status, ingredients_attributes: [:id, :name, :quantity, :_destroy], makes_attributes: [:id, :process, :image, :_destroy])
+  end
+
+  def login_check
+      unless user_signed_in?
+        redirect_to ("/users/sign_in")
+      end
+  end
+
+  def ensure_correct_recipe_user
+    @recipe = Recipe.find(params[:id])
+    if user_signed_in?
+      if current_user.id !=  @recipe.user.id
+       redirect_to root_path
+      end
+    else
+      redirect_to new_user_session_path
+    end
   end
 
 end
