@@ -19,12 +19,6 @@
       </div>
       <div class="box-login">
         <%= f.submit "ログイン" %>
-        <% if devise_mapping.rememberable? %>
-          <div class="remember">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember, "ログインしたままにする" %>
-          </div>
-        <% end %>
       </div>
     <% end %>
 
