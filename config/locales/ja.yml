@@ -23,3 +23,5 @@ ja:
 
       user:
         nickname: ニックネーム
+        email: Eメール
+        password: パスワード

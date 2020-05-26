@@ -81,6 +81,8 @@ gem 'rspec-rails'
 gem 'ransack'
 gem "cocoon"
 gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 gem 'dotenv-rails'
 group :production do
