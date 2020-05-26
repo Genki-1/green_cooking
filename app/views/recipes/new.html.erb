@@ -2,14 +2,13 @@
   <h1>レシピ新規登録画面</h1>
   
   <% if @recipe.errors.any? %>
-  <h3><%= @recipe.errors.count %>つ空白があります</h3><!--エラーメッセージ-->
   <ul>
     <% @recipe.errors.full_messages.each do |message| %>
     <li><%= message %></li>
     <% end %>
   </ul>
   <% end %>
-  
+
   <%= form_for(@recipe, url:recipes_path) do |f| %>
   <div class="row">
     <div class="col-xs-5">
@@ -29,7 +28,7 @@
         </div>
         <div class="description">
           <tr>
-            <th>説明</th><td><%= f.text_area :description, class: "recipe_input-mysize", rows:'4' %></td>
+            <th>レシピ説明</th><td><%= f.text_area :description, class: "recipe_input-mysize", rows:'4' %></td>
           </tr>
         </div>
         <div class="point">

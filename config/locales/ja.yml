@@ -7,3 +7,16 @@ ja:
       report:
         content: 文字
         image: 画像
+
+      recipe:
+        main_image: 完成画像
+        title: レシピ名
+        description: レシピ説明
+        point: コツ・ポイント
+
+      ingredients:
+        name: 材料名
+        quantity: 分量
+
+      makes:
+        process: 作り方

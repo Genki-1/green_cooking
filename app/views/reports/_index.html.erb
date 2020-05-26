@@ -1,12 +1,10 @@
 <% if @report.errors.any? %>
-  <h3><%= @report.errors.count %>つ空白があります</h3><!--エラーメッセージ-->
-  <ul>
-    <% @report.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
+<ul>
+  <% @report.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
   <% end %>
-
+</ul>
+<% end %>
 <!-- コメント内容(２件) ------------------------------------------------------------------>
 <%= reports.count %>件コメント
 <h6 class="more" data-toggle="collapse" data-target="#report_collapseExample" aria-expanded="false" aria-controls="report_collapseExample2">もっと見る....</h6>
