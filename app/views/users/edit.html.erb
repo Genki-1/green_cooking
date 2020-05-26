@@ -6,6 +6,15 @@
     <div class="user_profile">
       <div class="row user_profile_margin">
         <h2>ユーザー情報変更</h2>
+
+        <% if @user.errors.any? %>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+        <% end %>
+        
         <div class="col-xs-5">
           <h3>プロフィール画像</h3>
           <div align="center">

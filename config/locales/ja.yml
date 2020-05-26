@@ -20,3 +20,6 @@ ja:
 
       makes:
         process: 作り方
+
+      user:
+        nickname: ニックネーム
