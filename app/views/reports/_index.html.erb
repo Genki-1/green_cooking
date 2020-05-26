@@ -6,7 +6,7 @@
 <% unless report.id.nil? %>
 <li class="report-container">
   <div class="report-box">
-    <div class="report-avatar">
+    <div class="report-avatar col-xs-1">
       <%= attachment_image_tag report.user, :profile_image, fallback: "no_image.jpg", class:"report-image", size: "40x40" %>
     </div>
     <div class="report-text">
