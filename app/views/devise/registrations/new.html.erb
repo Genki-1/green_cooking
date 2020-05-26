@@ -5,25 +5,25 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="box-nickname">
-      <%= f.label :nickname %><br />
+      <%= f.label :nickname, "ニックネーム" %><br />
       <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
     </div>
 
     <div class="box-email">
-      <%= f.label :email %><br />
+      <%= f.label :email, "Eメール" %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
     <div class="box-password">
-      <%= f.label :password %>
+      <%= f.label :password, "パスワード" %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>( <%= @minimum_password_length %>文字以上 )</em>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "new-password" %>
     </div>
 
     <div class="box-password">
-      <%= f.label :password_confirmation %><br />
+      <%= f.label :password_confirmation, "パスワード ( 確認 )" %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 

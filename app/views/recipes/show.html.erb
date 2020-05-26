@@ -5,14 +5,14 @@
 
     <div class="recipe_show">
       <div class="row recipe_show_top">
-  <div class="col-xs-10">
-    <h1>レシピ詳細画面</h1>
-  </div>
+        <div class="col-xs-10">
+          <h1>レシピ詳細画面</h1>
+        </div>
 
-  <div class="col-xs-2 like_show_btn" id="show_like_<%= @recipe.id %>">
-    <%= render 'likes/like', recipe: @recipe %>
-  </div>
-</div>
+        <div class="col-xs-2 like_show_btn" id="show_like_<%= @recipe.id %>">
+          <%= render 'likes/like', recipe: @recipe %>
+        </div>
+      </div>
       <div class="recipe_show_margin">
         <h2>
           <%= @recipe.title %>
@@ -35,12 +35,12 @@
         </p>
         <div class="col-xs-5 recipe_show_image">
           <div>
-          <%= attachment_image_tag @recipe, :main_image, :fill, 260,260,format: "jpeg" , fallback: "no_image.jpg", size:'260x260' %>
-        </div>
-        <div>
-          <h3>コツ・ポイント</h3>
-          <%= @recipe.point %>
-        </div>
+            <%= attachment_image_tag @recipe, :main_image, :fill, 260,260,format: "jpeg" , fallback: "no_image.jpg", size:'260x260' %>
+          </div>
+          <div>
+            <h3>コツ・ポイント</h3>
+            <%= @recipe.point %>
+          </div>
         </div>
         <div class="col-xs-7">
           <h3>説明</h3>
@@ -114,7 +114,7 @@
           <% if user_signed_in? %>
           <h3 class="text-left">レポートを投稿する</h3>
           <div id="report_form">
-          <%= render partial: 'reports/form', locals: { report: @report, recipe: @recipe } %>
+            <%= render partial: 'reports/form', locals: { report: @report, recipe: @recipe } %>
           </div>
           <% else %>
           <div class="not_login" align="center">

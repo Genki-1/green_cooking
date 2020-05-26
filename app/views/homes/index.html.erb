@@ -4,60 +4,60 @@
     <table class="table">
       <h1>いいね数ランキング</h1>
       <tbody>
-      <% @ranking_recipes.each do |recipe| %>
-      <tr>
-        <td class="col-xs-2">
-          <%= link_to recipe_path(recipe) do %>
-          <%= attachment_image_tag recipe, :main_image, :fill, 120, 120, format: 'jpg', fallback: "no_image.jpg", size:'120x120' %>
-          <% end %>
-          
-        </td>
-        <td class="col-xs-7">
-          <div class="recipe_title"><%= link_to recipe.title, recipe_path(recipe) %></div>
-          <%= recipe.description %>
-        </td>
-        <td class="col-xs-2">
-          <%= link_to recipe.user.nickname, user_path(recipe.user) %>
+        <% @ranking_recipes.each do |recipe| %>
+        <tr>
+          <td class="col-xs-2">
+            <%= link_to recipe_path(recipe) do %>
+            <%= attachment_image_tag recipe, :main_image, :fill, 120, 120, format: 'jpg', fallback: "no_image.jpg", size:'120x120' %>
+            <% end %>
+            
+          </td>
+          <td class="col-xs-7">
+            <div class="recipe_title"><%= link_to recipe.title, recipe_path(recipe) %></div>
+            <%= recipe.description %>
+          </td>
+          <td class="col-xs-2">
+            <%= link_to recipe.user.nickname, user_path(recipe.user) %>
           </td>
           <td class="col-xs-1">
             <div class="like_btn" id="show_like_<%= recipe.id %>">
               <%= render 'likes/like', recipe: recipe %>
             </div>
           </td>
-      </tr>
-      <% end %>
-    </tbody>
+        </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 
   <div class="col-xs-12 tops_index">
-  <table class="table">
-    <h1>新規投稿レシピ</h1>
-    <p align="right"><%= link_to "＞＞もっと見る", recipes_path %></p>
-    <tbody>
-      <% @page_recipes.each do |recipe| %>
-      <tr>
-        <td class="col-xs-2">
-          <%= link_to recipe_path(recipe) do %>
-          <%= attachment_image_tag recipe, :main_image, :fill, 120, 120, format: 'jpg', fallback: "no_image.jpg", size:'120x120' %>
-          <% end %>
-          
-        </td>
-        <td class="col-xs-7">
-          <div class="recipe_title"><%= link_to recipe.title, recipe_path(recipe) %></div>
-          <%= recipe.description %>
-        </td>
-        <td class="col-xs-2">
-          <%= link_to recipe.user.nickname, user_path(recipe.user) %>
+    <table class="table">
+      <h1>新規投稿レシピ</h1>
+      <p align="right"><%= link_to "＞＞もっと見る", recipes_path %></p>
+      <tbody>
+        <% @page_recipes.each do |recipe| %>
+        <tr>
+          <td class="col-xs-2">
+            <%= link_to recipe_path(recipe) do %>
+            <%= attachment_image_tag recipe, :main_image, :fill, 120, 120, format: 'jpg', fallback: "no_image.jpg", size:'120x120' %>
+            <% end %>
+            
+          </td>
+          <td class="col-xs-7">
+            <div class="recipe_title"><%= link_to recipe.title, recipe_path(recipe) %></div>
+            <%= recipe.description %>
+          </td>
+          <td class="col-xs-2">
+            <%= link_to recipe.user.nickname, user_path(recipe.user) %>
           </td>
           <td class="col-xs-1">
             <div class="like_btn" id="index_like_<%= recipe.id %>">
               <%= render 'likes/like', recipe: recipe %>
             </div>
           </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

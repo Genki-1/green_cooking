@@ -23,6 +23,8 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_relationships
 
   validates :profile_text, length: { maximum: 80 }
+  validates :nickname, presence: true, length: { maximum: 10 }
+
 
   #フォローしているかを確認するメソッド
   def following?(user)

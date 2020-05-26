@@ -97,7 +97,7 @@
 
       <div class="recipes">
         <%= f.fields_for :makes do |make_fields| %>
-          <%= render "make_fields", f: make_fields %>
+        <%= render "make_fields", f: make_fields %>
         <% end %>
         <div class="links">
           <%= link_to_add_association "追加", f, :makes %>
