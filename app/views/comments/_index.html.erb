@@ -1,3 +1,11 @@
+<% if @comment.errors.any? %>
+            <h3><%= @comment.errors.count %>つ空白があります</h3><!--エラーメッセージ-->
+            <ul>
+              <% @comment.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+            <% end %>
 <!-- コメント内容(２件) ------------------------------------------------------------------>
 <%= comments.count %>件コメント
 <h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>

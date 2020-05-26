@@ -80,6 +80,7 @@ gem 'kaminari'
 gem 'rspec-rails'
 gem 'ransack'
 gem "cocoon"
+gem 'rails-i18n'
 
 gem 'dotenv-rails'
 group :production do
