@@ -19,7 +19,7 @@
 }
 
 
-.box-email {
+.box-email, .box-nickname {
   margin-bottom: 13px;
 }
 
@@ -27,14 +27,14 @@
   margin-bottom: 22px;
 }
 
-.box-email label, .box-password label {
+.box-email label, .box-password label, .box-nickname label {
   font-weight: 700;
   font-size: 13px;
   padding-left: 2px;
   padding-bottom: 2px;
 }
 
-.box-email input[type="email"], .box-password input[type="password"] {
+.box-email input[type="email"], .box-password input[type="password"], .box-nickname input[type="text"] {
   border-style: none;
   box-sizing: border-box;
   width: 100%;
