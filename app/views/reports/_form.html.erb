@@ -1,7 +1,7 @@
 <!-- コメント入力フォーム ------------------------------------------------------------>
 <%= form_with(model: [recipe, report], url: recipe_reports_path(recipe) ) do |f| %>
-    <%= f.attachment_field :image, class: "image_form achment_field", id: "image_select" %>
-    <%= attachment_image_tag report, :image,:fill, 100,100,fallback: "no_image.jpg", size:'100x100', id: "report_file-preview" %>
+    <%= f.attachment_field :image, class: "image_form achment_field btn btn-primary btn-xs", id: "image_select" %>
+    <%= attachment_image_tag report, :image,:fill, 100,100,fallback: "no_image.jpg", size:'100x100', class: "report_image", id: "report_file-preview" %>
     <%= f.text_area :content, class: "report_input-mysize" %>
     <%= f.submit "送信", class: "btn btn-outline-dark report-submit float-right" %>
 <% end %>
