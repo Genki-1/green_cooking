@@ -3,3 +3,7 @@ ja:
     attributes:
       comment:
         content: コメント
+
+      report:
+        content: 文字
+        image: 画像
