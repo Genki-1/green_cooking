@@ -37,32 +37,32 @@ class UsersController < ApplicationController
     #@userがフォローしているユーザー
     @user  = User.find(params[:id])
     @users = @user.following
-    @page_users = @users.page(params[:page]).per(2).order(created_at: :desc)
+    @page_users = @users.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def followers
     #@userをフォローしているユーザー
     @user  = User.find(params[:id])
     @users = @user.followers
-    @page_users = @users.page(params[:page]).per(2).order(created_at: :desc)
+    @page_users = @users.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def recipes
     @user = User.find(params[:id])
     @recipes = Recipe.where(user_id: @user.id)
-    @page_recipes = @recipes.page(params[:page]).per(2).order(created_at: :desc)
+    @page_recipes = @recipes.page(params[:page]).per(5).order(created_at: :desc)
   end
 
   def likes
     @user = User.find(params[:id])
     @recipes = @user.like_recipes.includes(:user)
-    @page_recipes = @recipes.page(params[:page]).per(2).order(created_at: :desc)
+    @page_recipes = @recipes.page(params[:page]).per(5).order(created_at: :desc)
   end
 
   def reports
     @user = User.find(params[:id])
     @reports = Report.where(user_id: @user.id)
-    @page_reports = @reports.page(params[:page]).per(2).order(created_at: :desc)
+    @page_reports = @reports.page(params[:page]).per(5).order(created_at: :desc)
   end
 
   private
