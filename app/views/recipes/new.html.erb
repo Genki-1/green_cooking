@@ -12,9 +12,9 @@
   <%= form_for(@recipe, url:recipes_path) do |f| %>
   <div class="row">
     <div class="col-xs-5">
-      <div class="field">
+      <div class="field ">
         <h3>完成画像</h3>
-        <%= attachment_image_tag @recipe, :main_image,:fill, 260,260,fallback: "no_image.jpg", size:'260x260', id: "main_file_preview" %>
+        <%= attachment_image_tag @recipe, :main_image,:fill,fallback: "no_image.jpg", class: 'main_image_size', id: "main_file_preview" %>
         <%= f.attachment_field :main_image, class: "btn btn-primary image_form achment_field image_btn", id: "main_image_select" %>
       </div>
     </div>
