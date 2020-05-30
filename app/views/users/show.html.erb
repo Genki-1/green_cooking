@@ -13,7 +13,7 @@
             <tbody>
               <tr>
                 <td colspan="3" align="center">
-                  <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg" %>
+                  <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", class: "profile_image_size" %>
                   <!-- フォローボタン -->
                   <%= render "follow_form" %>
                 </td>

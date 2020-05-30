@@ -15,7 +15,7 @@
     <div class="comment-box">
       <div class="row">
         <div class="comment-avatar col-xs-1">
-          <%= attachment_image_tag comment.user, :profile_image,:fill, 40,40, fallback: "no_image.jpg", class:"comment-image" %>
+          <%= attachment_image_tag comment.user, :profile_image,:fill, 40,40, fallback: "no_image.jpg", class:"comment-image small_image_size" %>
         </div>
         <p><%= link_to "@#{comment.user.nickname}", user_path(comment.user.id) %></p>
       </div>
@@ -50,7 +50,7 @@
       <div class="comment-box">
         <div class="row">
           <div class="comment-avatar col-xs-1">
-            <%= attachment_image_tag comment.user, :profile_image, :fill, 40,40, fallback: "no_image.jpg", class:"comment-image" %>
+            <%= attachment_image_tag comment.user, :profile_image, :fill, 40,40, fallback: "no_image.jpg", class:"comment-image small_image_size" %>
           </div><p><%= link_to "@#{comment.user.nickname}", user_path(comment.user.id) %></p>
         </div>
         <div class="comment-text">
