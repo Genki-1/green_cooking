@@ -12,9 +12,9 @@
   <%= form_for(@recipe, url:recipes_path) do |f| %>
   <div class="row">
     <div class="col-xs-5">
-      <div class="field ">
+      <div class="field">
         <h3>完成画像</h3>
-        <%= attachment_image_tag @recipe, :main_image,:fill,fallback: "no_image.jpg", class: 'main_image_size', id: "main_file_preview" %>
+        <%= attachment_image_tag @recipe, :main_image,:fill, 260,260,fallback: "no_image.jpg", class: 'main_image_size', id: "main_file_preview" %>
         <%= f.attachment_field :main_image, class: "btn btn-primary image_form achment_field image_btn", id: "main_image_select" %>
       </div>
     </div>
@@ -53,25 +53,25 @@
           <div class="recipe_status">
             <tr>
               <th>肉</th>
-              <td><%= f.radio_button :is_meat_status, "false" %> 未使用　　<%= f.radio_button :is_meat_status, "ture" %> 使用</td>
+              <td><%= f.radio_button :is_meat_status, "false" %> 未使用　　<%= f.radio_button :is_meat_status, "true" %> 使用</td>
             </tr>
           </div>
           <div class="recipe_status">
             <tr>
               <th>魚</th>
-              <td><%= f.radio_button :is_fish_status, "false" %> 未使用　　<%= f.radio_button :is_fish_status, "ture" %> 使用</td>
+              <td><%= f.radio_button :is_fish_status, "false" %> 未使用　　<%= f.radio_button :is_fish_status, "true" %> 使用</td>
             </tr>
           </div>
           <div class="recipe_status">
             <tr>
               <th>卵</th>
-              <td><%= f.radio_button :is_egg_status, "false" %> 未使用　　<%= f.radio_button :is_egg_status, "ture" %> 使用</td>
+              <td><%= f.radio_button :is_egg_status, "false" %> 未使用　　<%= f.radio_button :is_egg_status, "true" %> 使用</td>
             </tr>
           </div>
           <div class="recipe_status">
             <tr>
               <th>乳製品</th>
-              <td><%= f.radio_button :is_dairy_products_status, "false" %> 未使用　　<%= f.radio_button :is_dairy_products_status, "ture" %> 使用</td>
+              <td><%= f.radio_button :is_dairy_products_status, "false" %> 未使用　　<%= f.radio_button :is_dairy_products_status, "true" %> 使用</td>
             </tr>
           </div>
         </div>

@@ -5,7 +5,7 @@
     </thead>
     <tbody>
       <tr>
-        <td colspan="2" align="center"><%= attachment_image_tag user, :profile_image, :fill,200,200, format: 'jpeg', class: "profile-thumb", fallback: "no_image.jpg", size:'200x200' %>
+        <td colspan="2" align="center"><%= attachment_image_tag user, :profile_image, :fill,200,200, format: 'jpeg', class: "profile-thumb", fallback: "no_image.jpg" %>
           <%= render "follow_form" %>
         </td>
       </tr>

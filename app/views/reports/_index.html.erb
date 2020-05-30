@@ -15,14 +15,14 @@
     <div class="report-box">
       <div class="row">
         <div class="report-avatar col-xs-1">
-          <%= attachment_image_tag report.user, :profile_image, fallback: "no_image.jpg", class:"report-image", size: "40x40" %>
+          <%= attachment_image_tag report.user, :profile_image, :fill, 40,40, fallback: "no_image.jpg", class:"report-image" %>
         </div>
         <p><%= link_to "@#{report.user.nickname}", user_path(report.user.id) %></p>
       </div>
       <div class="report-text">
         <div class="row">
           <div class="report_image col-xs-2">
-            <%= attachment_image_tag report, :image, fallback: "no_image.jpg", class:"report-image", size: "100x100" %>
+            <%= attachment_image_tag report, :image, :fill, 100,100, fallback: "no_image.jpg", class:"report-image" %>
           </div>
           <%= report.content %>
         </div>
@@ -53,14 +53,14 @@
       <div class="report-box">
         <div class="row">
           <div class="report-avatar col-xs-1">
-            <%= attachment_image_tag report.user, :profile_image, fallback: "no_image.jpg", class:"report-image", size: "40x40" %>
+            <%= attachment_image_tag report.user, :profile_image, :fill, 40,40, fallback: "no_image.jpg", class:"report-image" %>
           </div>
           <p><%= link_to "@#{report.user.nickname}", user_path(report.user.id) %></p>
         </div>
         <div class="report-text">
           <div class="row">
             <div class="report_image col-xs-2">
-              <%= attachment_image_tag report, :image, fallback: "no_image.jpg", class:"report-image", size: "100x100" %>
+              <%= attachment_image_tag report, :image, :fill, 100,100, fallback: "no_image.jpg", class:"report-image" %>
             </div>
             <%= report.content %>
           </div>

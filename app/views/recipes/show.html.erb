@@ -35,7 +35,7 @@
         </p>
         <div class="col-xs-5 recipe_show_image">
           <div>
-            <%= attachment_image_tag @recipe, :main_image, :fill, 260,260,format: "jpeg" , fallback: "no_image.jpg", size:'260x260' %>
+            <%= attachment_image_tag @recipe, :main_image, :fill, 260,260,format: "jpeg" , fallback: "no_image.jpg" %>
           </div>
           <div>
             <h3>コツ・ポイント</h3>
@@ -66,7 +66,7 @@
           <tbody>
             <tr>
               <td><%= idx %></td>
-              <td class="col-xs-2" align="center"><%= attachment_image_tag make, :image, format: "jpeg" , fallback: "no_image.jpg", id: "image", size:'100x100' %></td>
+              <td class="col-xs-2" align="center"><%= attachment_image_tag make, :image,:fill, 100, 100, format: "jpeg" , fallback: "no_image.jpg", id: "image" %></td>
               <td class="col-xs-10"><%= make.process %></td>
             </tr>
           </tbody>
