@@ -94,7 +94,6 @@
   <div class="row">
     <div class="col-xs-12 flex">
 
-
       <div class="recipes">
         <%= f.fields_for :makes do |t| %>
         <%= render "make_fields", f: t %>
@@ -103,7 +102,6 @@
           <%= link_to_add_association "追加", f, :makes %>
         </div>
       </div>
-
 
     </div>
   </div>

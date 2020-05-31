@@ -4,5 +4,16 @@
 
     <%= f.label "分量" %>
     <%= f.text_field :quantity %>
-    <%= link_to_remove_association "消去", f %>
+    <%= link_to_remove_association "消去", f, :class => 'delete' %>
 </div>
+
+<script>
+ let domingredient = document.querySelector('.nested-fields')
+ let domingDelete = document.querySelector('.delete')
+if(domingredient.childElementCount == 6){
+  domingDelete.style.display ="none";
+}
+ console.log(domingredient.childElementCount)
+ console.log(22)
+ console.log(domingDelete)
+</script>
