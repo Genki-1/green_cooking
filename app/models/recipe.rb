@@ -8,10 +8,10 @@ class Recipe < ApplicationRecord
   attachment :main_image
 
   has_many :ingredients, dependent: :destroy
-  accepts_nested_attributes_for :ingredients, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :ingredients, allow_destroy: true
 
   has_many :makes, dependent: :destroy
-  accepts_nested_attributes_for :makes, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :makes, allow_destroy: true
 
   validates :main_image, presence: true
   validates :title, presence: true, length: { maximum: 20 }
