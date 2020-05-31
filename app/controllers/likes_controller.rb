@@ -2,9 +2,6 @@ class LikesController < ApplicationController
 
   before_action :recipe_params
 
-  def index
-  end
-
   def create
     like = current_user.likes.new(recipe_id: @recipe.id)
     like.save

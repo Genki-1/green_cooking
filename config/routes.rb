@@ -11,13 +11,13 @@ Rails.application.routes.draw do
   resources :recipes do
 
     resources :comments, only: [:create, :destroy]
-    resource :likes, only: [:create, :destroy, :index]
+    resource :likes, only: [:create, :destroy]
     resources :reports, only: [:create, :destroy]
   end
 
   resources :homes, only: [:index]
 
-  resources :likes, only: [:create, :index, :destroy]
+  resources :likes, only: [:create, :destroy]
 
   get 'users/confirm' => 'users#confirm'
   patch 'users/hide' => 'users#hide'
